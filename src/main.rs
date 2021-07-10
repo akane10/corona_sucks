@@ -1,3 +1,5 @@
+use corona_sucks;
+
 fn main() {
-    println!("Hello, world!");
+    corona_sucks::rocket_app().launch();
 }

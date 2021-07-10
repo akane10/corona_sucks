@@ -54,9 +54,6 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
         })
         .collect();
 
-    let file = File::create("../data.json")?;
-    serde_json::to_writer_pretty(file, &data)?;
-
     Ok(data)
 }
 
@@ -71,7 +68,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let data = fetch_data().await?;
 
         println!("{}", "writing file...");
-        let file = File::create("../data.json")?;
+        let file = File::create("../public/data.json")?;
         serde_json::to_writer_pretty(file, &data)?;
         println!("{}", "done");
     }
