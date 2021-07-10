@@ -18,7 +18,6 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
     let url = format!("{}&key={}", URL, key);
 
     let resp = reqwest::get(url).await?.json::<Hjson>().await?;
-
     let sheets_json = resp.get("sheets").unwrap();
     let sheets: Vec<Value> = serde_json::from_value(sheets_json.clone()).unwrap_or(Vec::new());
 
@@ -27,6 +26,12 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
         .map(|sheet| {
             let row_data_json: Vec<Value> =
                 serde_json::from_value(sheet["data"][0]["rowData"].clone()).unwrap_or(Vec::new());
+            let title: String = serde_json::from_value(sheet["properties"]["title"].clone())
+                .unwrap_or(String::from(""));
+
+            (title, row_data_json)
+        })
+        .map(|(title, row_data_json)| {
             let row_data: Vec<Vec<String>> = row_data_json
                 .into_iter()
                 .map(|x| serde_json::from_value(x["values"].clone()).unwrap_or(Vec::new()))
@@ -45,12 +50,7 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
                 .filter(|val| !val.into_iter().all(|x| x.is_empty()))
                 .collect();
 
-            let data_sheet = DataSheets {
-                title: serde_json::from_value(sheet["properties"]["title"].clone())
-                    .unwrap_or(String::from("")),
-                row_data,
-            };
-            data_sheet
+            DataSheets { title, row_data }
         })
         .collect();
 
