@@ -1,4 +1,6 @@
+use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
+use serde_json::from_value;
 use serde_json::Value;
 use std::{collections::HashMap, fs::File};
 use tokio::time;
@@ -17,33 +19,30 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
     let key: String = dotenv::var("API_KEY").expect("Missing api key");
     let url = format!("{}&key={}", URL, key);
 
+    fn get_value<T: DeserializeOwned>(json: &Value, fallback: T) -> T {
+        from_value(json.clone()).unwrap_or(fallback)
+    }
+
     let resp = reqwest::get(url).await?.json::<Hjson>().await?;
     let sheets_json = resp.get("sheets").unwrap();
-    let sheets: Vec<Value> = serde_json::from_value(sheets_json.clone()).unwrap_or(Vec::new());
+    let sheets: Vec<Value> = get_value(&sheets_json, Vec::new());
 
     let data: Vec<DataSheets> = sheets[1..]
         .into_iter()
         .map(|sheet| {
-            let row_data_json: Vec<Value> =
-                serde_json::from_value(sheet["data"][0]["rowData"].clone()).unwrap_or(Vec::new());
-            let title: String = serde_json::from_value(sheet["properties"]["title"].clone())
-                .unwrap_or(String::from(""));
+            let row_data_json: Vec<Value> = get_value(&sheet["data"][0]["rowData"], Vec::new());
+            let title: String = get_value(&sheet["properties"]["title"], String::from(""));
 
             (title, row_data_json)
         })
         .map(|(title, row_data_json)| {
             let row_data: Vec<Vec<String>> = row_data_json
                 .into_iter()
-                .map(|x| serde_json::from_value(x["values"].clone()).unwrap_or(Vec::new()))
+                .map(|x| get_value(&x["values"], Vec::new()))
                 .map(|x: Vec<Value>| {
                     let formatted_value: Vec<String> = x
                         .into_iter()
-                        .map(|value| {
-                            let formatted_value: String =
-                                serde_json::from_value(value["formattedValue"].clone())
-                                    .unwrap_or(String::from(""));
-                            formatted_value
-                        })
+                        .map(|value| get_value(&value["formattedValue"], String::from("")))
                         .collect();
                     formatted_value
                 })
