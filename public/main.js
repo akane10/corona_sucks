@@ -15,14 +15,13 @@ function search() {
   const input = document.getElementById("search");
   const keyword = input.value.toLowerCase();
 
-  const x = DATA[CURRENT_INDEX].data.filter((item) => {
+  const data = DATA[CURRENT_INDEX].data.filter((item) => {
     return item
       .map((ii) => ii.toLowerCase())
       .filter((ii) => ii.includes(keyword)).length;
   });
 
-  SELECTED_DATA.data = x;
-
+  SELECTED_DATA.data = data;
   render_data();
 }
 

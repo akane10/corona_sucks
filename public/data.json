@@ -216,7 +216,7 @@
         "https://oxygen-budhi-gas.business.site/",
         "",
         "9 juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Oksigen",
@@ -228,7 +228,7 @@
         "",
         "",
         "8 Juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Oksigen",
@@ -240,7 +240,7 @@
         "",
         "",
         "9 Juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Oksigen",
@@ -2969,7 +2969,9 @@
         "Kontak",
         "Alamat",
         "Tautan",
-        "Tambahan Informasi"
+        "Tambahan Informasi",
+        "Tanggal Verifikasi",
+        "Bentuk Verifikasi"
       ],
       [
         "Oksigen",
@@ -2978,6 +2980,8 @@
         "Arnez de Lourdes",
         "(0711) 310146",
         "Jl. Jend. Sudirman No.79, Sekip Jaya, Kec. Kemuning, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -2989,6 +2993,8 @@
         "08127343507",
         "",
         "https://www.instagram.com/oxygenpalembang/",
+        "",
+        "",
         ""
       ],
       [
@@ -2998,6 +3004,8 @@
         "RS Pusri",
         "(0711) 721313",
         "Komp. PT PUSRI, Jl. May Zen, Sei Selayur, Kec. Kalidoni, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3009,6 +3017,8 @@
         "(0711) 712938",
         "Jl. Talang Gading No.RT 07, Kalidoni, Kec. Kalidoni, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3018,6 +3028,8 @@
         "Puskesmas Sei Selincah",
         "(0711) 718374",
         "Jl. May Zen No.3, Sei Selincah, Kec. Kalidoni, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3029,6 +3041,8 @@
         "(0711) 819891",
         "Jl. Tj. Sari No.2, Bukit Sangkal, Kec. Kalidoni, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3038,6 +3052,8 @@
         "Puskesmas Sako",
         "(0711) 826194",
         "JL Sematang Borang, No. 765 RT 14 RW 06, Sako, Sako Baru, Kec. Sako, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3049,6 +3065,8 @@
         "(0711) 824770",
         "Jl. Lematang Raya No.16, Sialang, Kec. Sako, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3058,6 +3076,8 @@
         "Puskesmas Bom Baru",
         "",
         "Jl. Slamet Riady No.1557, Lawang Kidul, Kec. Ilir Tim. II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3069,6 +3089,8 @@
         "(0711) 441345",
         "Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3078,6 +3100,8 @@
         "RSIA Mama Palembang",
         "(0711) 357351",
         "Jl. Lembing Kampus No.15, Lorok Pakjo, Ilir Barat I, Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3089,6 +3113,8 @@
         "(0711) 597444",
         "Komplek Pertamina UP III, Jl. Pengantingan No.1, Komperta, Kec. Plaju, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3098,6 +3124,8 @@
         "Puskesmas Naga Swidak",
         "0819-7787-3700",
         "Gg. Bangdes, 14 Ulu, Kec. Seberang Ulu II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3109,6 +3137,8 @@
         "(0711) 514482",
         "Jl. KH. Azhari No.511, Tangga Takat, Kec. Seberang Ulu II, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3118,6 +3148,8 @@
         "Puskesmas Tegal Binangun",
         "",
         "Lorong Jambu, Plaju Darat, Kec. Plaju, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3129,6 +3161,8 @@
         "(0711) 317303",
         "Jl. Merdeka No.66, Talang Semut, Kec. Bukit Kecil, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3138,6 +3172,8 @@
         "Puskesmas Sabokingking",
         "",
         "Sei Buah, Kec. Ilir Tim. II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3149,6 +3185,8 @@
         "0811-7182-222",
         "Jl. Kolonel Atmo No.861, 17 Ilir, Kec. Ilir Tim. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3158,6 +3196,8 @@
         "Puskesmas 23 Ilir",
         "0811-7111-926",
         "Jl. Datuk Moh. Akib No.100, 23 Ilir, Kec. Bukit Kecil, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3169,6 +3209,8 @@
         "(0711) 317308",
         "Jl. Ariodillah 1 No.2102, 20 Ilir D. III, Kec. Ilir Tim. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3178,6 +3220,8 @@
         "RS Pelabuhan",
         "(0711) 712841",
         "Jl. Mayor Memet Sastra Wirya No.1, Lawang Kidul, Kec. Ilir Tim. II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3189,6 +3233,8 @@
         "(0711) 822723",
         "Jalan Brigadir jenderal Hasan Khasim Nomor 1-2 Kelurahan, Bukit Sangkal, Kec. Kalidoni, Kota Palembang,",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3198,6 +3244,8 @@
         "Puskesmas Kenten",
         "0812-7987-8741",
         "Jl. MP. Mangkunegara No.1, Bukit Sangkal, Kec. Kalidoni, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3209,6 +3257,8 @@
         "(0711) 364125",
         "Jl. Slamet Riady No.455, 11 Ilir, Kec. Ilir Tim. II, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3218,6 +3268,8 @@
         "Puskesmas 5 Ilir",
         "(0711) 5625790",
         "Jalan Jendral Jl. Bambang Utoyo No.1095, 5 Ilir, Kec. Ilir Tim. II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3229,6 +3281,8 @@
         "",
         "Jl. Mitra Raya, Sako, Kec. Sako, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3238,6 +3292,8 @@
         "Poliklinik Polrestabes",
         "",
         "Jl. Gub H Bastari, 8 Ulu, Kecamatan Seberang Ulu I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3249,6 +3305,8 @@
         "",
         "Jl. Srijaya Negara, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3258,6 +3316,8 @@
         "RS Gandus",
         "",
         "Gandus, Kec. Gandus, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3269,6 +3329,8 @@
         "",
         "Palembang, Sumatera, Jalan Selatan, Talang Putri, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3278,6 +3340,8 @@
         "Puskesmas Makrayu",
         "(0711) 318400",
         "Jl. Makrayu No.960, 32 Ilir, Kec. Ilir Bar. II, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3289,6 +3353,8 @@
         "(0711) 510203",
         "Jalan Jendral Ahmad Yani No.62A, 9/10 Ulu, Kecamatan Seberang Ulu I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3298,6 +3364,8 @@
         "Puskesmas Kertapati",
         "0812-7847-4534",
         "Jl. Abi Kusno Cokro Suyoso No.335, Kemang Agung, Kec. Kertapati, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3309,6 +3377,8 @@
         "",
         "Jl. Musi, Keramasan, Kec. Kertapati, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3318,6 +3388,8 @@
         "Puskesmas 4 Ulu",
         "(0711) 511373",
         "Jalan Kyai Haji Asyik No.1484, 3-4 Ulu, Seberang Ulu I, 3-4 Ulu, Kecamatan Seberang Ulu I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3329,6 +3401,8 @@
         "",
         "Jl. KH. Azhari, 7 Ulu, Kecamatan Seberang Ulu I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3338,6 +3412,8 @@
         "Puskesmas Padang Selasa",
         "",
         "Jl. Padang Selasa, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3349,6 +3425,8 @@
         "(0711) 7422653",
         "Jl. Kebun Bunga, RT.37/RW.05, Kebun Bunga, Kec. Sukarami, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3358,6 +3436,8 @@
         "Puskesmas Kampus",
         "(0711) 368650",
         "Jl. Golf No.5, Lorok Pakjo, Kec. Ilir Bar. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3369,6 +3449,8 @@
         "",
         "Jl. Bypass Alang-Alang Lebar, Talang Klp., Kec. Alang-Alang Lebar, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3378,6 +3460,8 @@
         "Puskesmas Sekip",
         "",
         "Jl. Ampibi No.1977, 20 Ilir D II, Kec. Kemuning, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3389,6 +3473,8 @@
         "(0711) 353259",
         "Jl. Letnan Murod No.986, RT.13, 20 Ilir D. IV, Kec. Ilir Tim. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3398,6 +3484,8 @@
         "Puskesmas Pakjo",
         "(0711) 5613007",
         "Jl. Inspektur Marzuki Lorong Bambu Kuning No.2240, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3409,6 +3497,8 @@
         "(0711) 5620648",
         "Jl. Opi Raya, Sungai Kedukan, Kec. Rambutan, Kabupaten Banyu Asin",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3418,6 +3508,8 @@
         "Puskesmas Sei Baung",
         "",
         "Jl. Pertiwi No.RT.10, Demang Lebar Daun, Kec. Ilir Bar. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3429,6 +3521,8 @@
         "0882-7201-8322",
         "Komplek Pemda, Jl. Srijaya No.5,5, Srijaya, Kec. Alang-Alang Lebar, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3438,6 +3532,8 @@
         "Puskesmas Sosial",
         "",
         "Lorong Mekar I, Suka Bangun, Kec. Sukarami, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3449,6 +3545,8 @@
         "(0711) 814470",
         "Jl. Sersan Sani No.1305, Talang Aman, Kec. Kemuning, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3458,6 +3556,8 @@
         "RS Sriwijaya",
         "(0711) 419680",
         "Jalan Jenderal Sudirman KM.4.5 No.502, 20 Ilir D. IV, Kec. Ilir Tim. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3469,6 +3569,8 @@
         "(0711) 364954",
         "Jl. Jend. Sudirman No.1051, 20 Ilir D. I, Kec. Ilir Tim. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3478,6 +3580,8 @@
         "RS Tiara Fatrin",
         "(0711) 353438",
         "496, Jl. Rajawali No.495, 9 Ilir, Ilir Timur II, Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3489,6 +3593,8 @@
         "(0711) 5610503",
         "Jl. HM. Saleh KM.7 No.2, Sukarami, Kec. Sukarami, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3498,6 +3604,8 @@
         "RS Rika Amelia",
         "",
         "Jl. Betung Km.12, Sukodadi, Sukarami, Sukodadi, Kec. Sukarami, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3509,6 +3617,8 @@
         "",
         "Jl. Musi, Keramasan, Kec. Kertapati, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3518,6 +3628,8 @@
         "RS Bunda Noni",
         "(0711) 441952",
         "Jl. Srijaya Negara, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -3529,6 +3641,8 @@
         "(0711) 356008",
         "Jl. Demang Lebar Daun, Lorok Pakjo, Kec. Ilir Bar. I, Kota Palembang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3537,6 +3651,8 @@
         "Palembang & Banyuasin",
         "Fakem Center Palembang Darussalam",
         "085273558333",
+        "",
+        "",
         "",
         "",
         ""
@@ -3549,6 +3665,8 @@
         "07115738523",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3557,6 +3675,8 @@
         "Palembang",
         "Majelis Dzikir Asmaul Husna",
         "081273471116",
+        "",
+        "",
         "",
         "",
         ""
@@ -3569,6 +3689,8 @@
         "081278235529",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3577,6 +3699,8 @@
         "Palembang",
         "RS RK Charitas Palembang",
         "0711353375 ex118",
+        "",
+        "",
         "",
         "",
         ""
@@ -3589,6 +3713,8 @@
         "089517701912",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3597,6 +3723,8 @@
         "Palembang",
         "PMI Kota Palembang",
         "0711351601",
+        "",
+        "",
         "",
         "",
         ""
@@ -3609,6 +3737,8 @@
         "0733324955",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -3619,7 +3749,9 @@
         "0711354088",
         "Jl. Jend. Sudirman, KM 3,5, Palembang",
         "",
-        "Hubungi CS atau langsung ke pintu belakang komplek rumah sakit."
+        "Hubungi CS atau langsung ke pintu belakang komplek rumah sakit.",
+        "",
+        ""
       ],
       [
         "Ambulans",
@@ -3629,7 +3761,9 @@
         "8117885100",
         "",
         "",
-        "Layanan ambulans gratis untuk Pasien Covid-19"
+        "Layanan ambulans gratis untuk Pasien Covid-19",
+        "",
+        ""
       ]
     ]
   },
@@ -3645,8 +3779,8 @@
         "Alamat",
         "Tautan",
         "Tambahan Informasi",
-        "Terakhir Diupdate",
-        "Status"
+        "Tanggal Verifikasi",
+        "Bentuk Verifikasi"
       ],
       [
         "Kontak Penting ",
@@ -3913,6 +4047,18 @@
         "07179106750",
         "Bangka Belitung",
         "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Tes Swab",
+        "Tes PCR dan Antigen",
+        "Pangkal Pinang",
+        "Dinas Kesehatan Provinsi Kepulauan Bangka Belitung",
+        "(0717) 423303, (0717) 423091",
+        "Jl. Pulau Bangka, Air Itam, Bukit Intan, Kota Pangkal Pinang, Kepulauan Bangka Belitung",
+        "https://www.google.com/maps/place/Dinas+Kesehatan+Provinsi+Kepulauan+Bangka+Belitung/@-2.1581868,106.1652685,15z/data=!4m2!3m1!1s0x0:0xe1e14ab15fc1d0c5?sa=X&ved=2ahUKEwiiyvGW19rxAhWS4nMBHR0hCvwQ_BIwEnoECEgQBQ",
         "",
         "",
         ""
@@ -4215,10 +4361,106 @@
         "ketersediaan tempat tidur",
         "Kota Jambi",
         "RS Baiturrahim",
-        "",
+        "074135165",
         "Jl. Prof. DR. Moh. Yamin No.30, Lb. Bandung, Kec. Jelutung, Kota Jambi, Jambi 36124",
         "https://www.instagram.com/humaskotajambi/",
         "tersedia 13 tempat tidur per 11 juli 2021",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Pal Merah I",
+        "082251835151",
+        "Jl. KH. AR. Saleh Kec. Paal Merah, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "senin, kamis, sabtu (08.00-12.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Pal Merah II",
+        "085282653735 (Desmeri)",
+        "Jl. KH. AR. Saleh Kec. Paal Merah, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "selasa, kamis, sabtu (08.00-12.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Payo Selincah",
+        "085266585677 (Ali)",
+        "Jl. Orang Kayo Pingai, Kec. Paal Merah, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "senin, rabu, sabtu (08.00-12.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Talang Bakung",
+        "07413081195, 082185825214",
+        "Kel. Talang Bakung, Kec. Paal Merah, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "senin (08.00-12.00), selasa dan rabu (09.00-12.00), kamis (10.00-12.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Rawasari",
+        "081366630128 (Halma)",
+        "Jl. TP.Sriwijaya, Kec. Alam Barajo, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "senin dan rabu (08.00-12.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Kenali Besar",
+        "08117411026 (Junimar)",
+        "Jl. Lingkar Timur, Kec. Alam Barajo, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "selasa dan kamis (08.00-12.00), sabtu (08.00-11.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Putri Ayu",
+        "085273022470 (Eva)",
+        "Jl. Slamet Riyadi, Kec. Danau Sipin, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "selasa dan kamis (08.00-12.00), jumat (08.00-10.30), sabtu (08.00-11.00)",
+        "",
+        ""
+      ],
+      [
+        "Tempat vaksin",
+        "tempat vaksin",
+        "Kota Jambi",
+        "Puskesmas Pakuan Baru",
+        "081253980517, 085289372020 (Nani)",
+        "Jl. Jend. Sudirman, Kec. Jambi Selatan, Kota Jambi, Jambi",
+        "https://www.instagram.com/humaskotajambi/",
+        "senin, selasa, sabtu (08.00-12.00)",
         "",
         ""
       ]
@@ -4236,7 +4478,7 @@
         "Alamat",
         "Tautan",
         "Tambahan Informasi",
-        "Terakhir Diupdate",
+        "Tanggal Verifikasi",
         "Status"
       ],
       [
@@ -7287,8 +7529,8 @@
         "Jl Merapi RT 01 RW 04 dukuh Banyon Kel, Gayamprit, Kec. Klaten Sel., Kabupaten Klaten, Jawa Tengah 57424",
         "https://goo.gl/maps/kbfuxFDBoRS83FA99",
         "",
-        "",
-        ""
+        "10/07/21",
+        "Cek via aplikasi Getcontact"
       ],
       [
         "Oksigen ",
@@ -7299,8 +7541,8 @@
         "RT/RW:001/005, Gesing, Jatipuro, Kec. Trucuk, Kabupaten Klaten, Jawa Tengah 574",
         "\nhttps://goo.gl/maps/nxgPQEXSEBDViiqT6",
         "",
-        "",
-        ""
+        "10/07/21",
+        "Cek via aplikasi Getcontact"
       ],
       [
         "Ambulans ",
@@ -7335,8 +7577,8 @@
         "Pucangsawit, Jebres, Surakarta City, Central Java 57125",
         "https://oksigensolo.id/",
         "",
-        "",
-        ""
+        "10/07/21",
+        "Cek via aplikasi Getcontact"
       ],
       [
         "Ambulans ",
@@ -7423,16 +7665,16 @@
         ""
       ],
       [
-        "Info Sembako Gratis",
+        "Donasi Isoman",
         "Sembako Gratis Solo",
         "Surakarta",
-        "",
+        "Pembagian Sembako dan Pengiriman Vitamin bagi yang terppar Covid-19",
         "08114498168",
-        "",
+        "Jl Hasanuddin No 44, Punggawan, Kota Surakarta, Jawa Tengah",
         "https://drive.google.com/open?id=1HIRk0xTRqjMwQHDcu2-d8ogIsMjejzSa ",
-        "",
-        "",
-        ""
+        "Nasi bungkus (200 bungkus), Sembako (Beras 5kg, minya, sabun, teh, kopi, supermi), Vitamin dan susu anak",
+        "10/07/21",
+        "Telepon"
       ],
       [
         "Oksigen",
@@ -9072,8 +9314,80 @@
         ""
       ],
       [
-        "Tes Swab",
-        "Tes PCR",
+        "Ambulans",
+        "Ambulans",
+        "Sleman",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "081227429495",
+        "Sawahan, Pandowo Harjo, Kecamatan Sleman, Sawahan, Pandowoharjo, Kec. Sleman, Kabupaten Sleman, Daerah Istimewa Yogyakarta ",
+        "https://www.google.com/maps/place/Gedung+PDM+Sleman/@-7.7095298,110.3579114,15z/data=!4m2!3m1!1s0x0:0x9b16a457c7810c27?sa=X&ved=2ahUKEwiGqr2H2NrxAhXlqksFHXJoCCcQ_BIwHXoECFIQBQ",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "Kontak Ambulance ",
+        "Sleman",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "081325766406",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "Ambulans",
+        "Kulon Progo",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "085211911133",
+        "Kedondong 1, Kagoengan, Banjararum, Kec. Kalibawang, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta",
+        "https://www.google.com/maps/place/Ambulance+PCM+Kalibawang/@-7.7207967,110.2179947,15z/data=!4m2!3m1!1s0x0:0xb4d21d9916a6864a?sa=X&ved=2ahUKEwj3_N-F29rxAhUQ8HMBHXM4BkQQ_BIwFnoECEEQBQ",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "Ambulans",
+        "Yogyakarta",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "085327698877",
+        "l. Sultan Agung No.14, Wirogunan, Pakualaman, Kota Yogyakarta, Daerah Istimewa Yogyakarta",
+        "https://www.google.com/maps/place/Pimpinan+Daerah+Muhammadiyah+Kota+Yogyakarta/@-7.8020089,110.3736373,15z/data=!4m2!3m1!1s0x0:0x3e10fe9fc2ec1e66?sa=X&ved=2ahUKEwjZ1tqY29rxAhXr7XMBHW-IAo0Q_BIwDnoECDsQBQ",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "Ambulans",
+        "Sleman",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "085740632111",
+        "Bokoharjo, Prambanan, Sleman, Daerah Istimewa Yogyakarta 55572 Ringin Sari, Ringin Sari, Bokoharjo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+        "https://www.google.com/maps/place/Kantor+PCM+Prambanan,Gunungharjo+Bokoharjo/@-7.7697755,110.4850676,15z/data=!4m2!3m1!1s0x0:0x948b91f8533b1e18?sa=X&ved=2ahUKEwi_5OmB3drxAhUXfSsKHYBsDQwQ_BIwFXoECD4QBQ",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "Ambulans",
+        "Bantul",
+        "Muhammadiyah Commad Center Yogyakarta",
+        "087819121000",
+        "Jl. Salakan Utara 2 No.55, Randubelang, Bangunharjo, Kec. Sewon, Bantul, Daerah Istimewa Yogyakarta",
+        "https://www.google.com/maps/place/Posko+MCCC+Sewon+Utara/@-7.8264586,110.3702183,15z/data=!4m2!3m1!1s0x0:0xfc4898184c86ca4?sa=X&ved=2ahUKEwiomJWr3drxAhVSU30KHUieA_UQ_BIwCnoECDYQBQ",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Ambulans",
+        "",
         "",
         "",
         "",
@@ -9096,7 +9410,9 @@
         "Kontak",
         "Alamat",
         "Tautan",
-        "Tambahan Informasi"
+        "Tambahan Informasi",
+        "Tanggal Verifikasi",
+        "Bentuk Verifikasi"
       ],
       [
         "Donor Plasma",
@@ -9104,6 +9420,8 @@
         "Surabaya",
         "UDD PMI Surabaya",
         "085856533318, 085852222686, 089625179787",
+        "",
+        "",
         "",
         "",
         ""
@@ -9116,6 +9434,8 @@
         "082140979103, 085851396070, 087839552435",
         "Jln .koperasi 68 madiun",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9125,6 +9445,8 @@
         "Oke Oksigen - Refill Oxygen Tank",
         "0856-3038-808",
         "Jl. kendal Sari Selatan Ruko Kendalsari Selatan No.A-7, Penjaringan Sari, Kec. Rungkut, Kota SBY, Jawa Timur 60297",
+        "",
+        "",
         "",
         ""
       ],
@@ -9136,6 +9458,8 @@
         "0823-3531-6170",
         "Jl. Pucang Sewu III No.7, Pucang Sewu, Kec. Gubeng, Kota SBY, Jawa Timur 60283",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9145,6 +9469,8 @@
         "Fresh Oxygen Surabaya",
         "0813-3440-6442",
         "Jl. Gunung Anyar Lor No.5, Gn. Anyar, Kec. Gn. Anyar, Kota SBY, Jawa Timur 60135",
+        "",
+        "",
         "",
         ""
       ],
@@ -9156,6 +9482,8 @@
         "0851-0042-6901",
         "Jl. Gubeng Kertajaya V. E No.20, Airlangga, Kec. Gubeng, Kota SBY, Jawa Timur 60286",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9165,6 +9493,8 @@
         "JOJO OKSIGEN MEDIKA",
         "0857-3575-1979, 082335316170, 085853612977",
         "Jl. Pucang Sewu III No.7, Pucang Sewu, Kec. Gubeng, Kota SBY, Jawa Timur 60283",
+        "",
+        "",
         "",
         ""
       ],
@@ -9176,6 +9506,8 @@
         "0812-1654-7088",
         "Jl. Wiyung I No.17, RT.1/RW.2, Wiyung, Kec. Wiyung, Kota SBY, Jawa Timur 60228",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9185,6 +9517,8 @@
         "JACOM OKSIGEN",
         "0822-4524-5957",
         "Sidotopo Wetan Baru II No.32, Sidotopo Wetan, Kec. Kenjeran, Kota SBY, Jawa Timur 60128",
+        "",
+        "",
         "",
         ""
       ],
@@ -9196,6 +9530,8 @@
         "-",
         "Gg. IX No.63, Simomulyo, Kec. Sukomanunggal, Kota SBY, Jawa Timur 60281",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9205,6 +9541,8 @@
         "Mitra Gas Medical Oxygen",
         "0815-5387-9155",
         "Jalan Gubeng Kertajaya VII H No.12, RT.09/RW.04, Gubeng, Kec. Gubeng, Kota SBY, Jawa Timur 60286",
+        "",
+        "",
         "",
         ""
       ],
@@ -9216,6 +9554,8 @@
         "0822-3307-7735",
         "Jl. Gn. Sari II No.212, Sawunggaling, Kec. Wonokromo, Kota SBY, Jawa Timur 60242",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9225,6 +9565,8 @@
         "Medikal Oksigen Surabaya",
         "0896-1260-7424",
         "Jl. Simo Rejo VII No.33B, Simomulyo, Kec. Sukomanunggal, Kota SBY, Jawa Timur 60281",
+        "",
+        "",
         "",
         ""
       ],
@@ -9236,6 +9578,8 @@
         "0812-4993-4301",
         "Jl. Gubeng Kertajaya VII K No.1, Airlangga, Kec. Gubeng, Kota SBY, Jawa Timur 60286",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9245,6 +9589,8 @@
         "Arsy oksigen medica",
         "0821-3150-7261",
         "Jl. Kedurus III Sd No.30, Kedurus, Kec. Karang Pilang, Kota SBY, Jawa Timur 60223",
+        "",
+        "",
         "",
         ""
       ],
@@ -9256,6 +9602,8 @@
         "0896-1260-7424",
         "Jl. Dk. Kupang Tim. XVII No.74, Pakis, Kec. Sawahan, Kota SBY, Jawa Timur 60256",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9265,6 +9613,8 @@
         "KJ.Oksigen Medica",
         "0822-5710-5188",
         "Jl. Raya Menganti Balong Dinding Jl. Dukuh Gemol 1C No.18, Jajar Tunggal, Kec. Wiyung, Kota SBY, Jawa Timur 60229",
+        "",
+        "",
         "",
         ""
       ],
@@ -9276,6 +9626,8 @@
         "0812-3171-5678",
         "Jl. Dr. Ir. H. Soekarno No.243, Medokan Semampir, Kec. Sukolilo, Kota SBY, Jawa Timur 60119",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9285,6 +9637,8 @@
         "Carolina Perdana oksigen wiyung",
         "0822-4475-6559",
         "Jl. Pesapen No.66, Sumur Welut, Kec. Lakarsantri, Kota SBY, Jawa Timur 60215",
+        "",
+        "",
         "",
         ""
       ],
@@ -9296,6 +9650,8 @@
         "0812-4993-4301",
         "Jl. Gubeng Kertajaya VII K, Airlangga, Kec. Gubeng, Kota SBY, Jawa Timur 60286",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9305,6 +9661,8 @@
         "CV. Erka Jaya Gas",
         "(0341) 791642",
         "Jl. Industri Wendit Barat, Lowoksoro, Mangliawan, Kec. Pakis, Malang, Jawa Timur 65154",
+        "",
+        "",
         "",
         ""
       ],
@@ -9316,6 +9674,8 @@
         "-",
         "Gang 4 No.19 RT 01 RW 09 Wa 089653081729, Kec. Sukun, Kota Malang, Jawa Timur 65147",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9325,6 +9685,8 @@
         "Carolina Oksigen Malang",
         "0813-3345-0006",
         "Ruko Griya Shanta D.344 C, Jl. Soekarno - Hatta, Mojolangu, Lowokwaru, Malang City, East Java 65141",
+        "",
+        "",
         "",
         ""
       ],
@@ -9336,6 +9698,8 @@
         "0896-8181-7721",
         "Jl. Tlk. Bayur No.182, Pandanwangi, Kec. Blimbing, Kota Malang, Jawa Timur 65125",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9345,6 +9709,8 @@
         "AR GAS Distributor Oksigen",
         "0853-3566-0488",
         "Jl. Adisetia Kavilng B5, RT.04/RW.01, Ardirejo, Kec. Kepanjen, Malang, Jawa Timur 65163",
+        "",
+        "",
         "",
         ""
       ],
@@ -9356,6 +9722,8 @@
         "0852-3644-0001",
         "Jalan Raya Kapi Sraba Blok 13F No. 41 Perumahan Sawojajar, Keduyo, Mangliawan, Kec. Pakis, Malang, Jawa Timur 65154",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9365,6 +9733,8 @@
         "Wiranto Gas UD",
         "(0341) 566036",
         "Jl. Aries Munandar, Kidul Dalem, Kec. Klojen, Kota Malang, Jawa Timur 65119",
+        "",
+        "",
         "",
         ""
       ],
@@ -9376,6 +9746,8 @@
         "0859-3134-4999",
         "Griya permata gedangan blok i5 nomor 20, Sikep, Keboansikep, Kec. Gedangan, Kabupaten Sidoarjo, Jawa Timur 61254",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9385,6 +9757,8 @@
         "Isi Ulang oksigen sidoarjo",
         "0838-3055-5688",
         "Jl. Perum Pejaya Anugrah No.6, Pejaya Indah, Kramat Jegu, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257",
+        "",
+        "",
         "",
         ""
       ],
@@ -9396,6 +9770,8 @@
         "0813-3192-4585",
         "Jl. Flamboyan, Dusun Sambirono Kulon, Sidodadi, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9405,6 +9781,8 @@
         "Isi Ulang Gas Oksigen Sidoarjo",
         "0857-3334-6325",
         "Jl. Sunan Muria No.2, Wonosari, Klantingsari, Kec. Tarik, Kabupaten Sidoarjo, Jawa Timur 61265",
+        "",
+        "",
         "",
         ""
       ],
@@ -9416,6 +9794,8 @@
         "082234666947, 087851898522",
         "Perum Griya 1, Blok C2, No. 32, Sambang, Kebonagung, Kec. Sukodono, Kabupaten Sidoarjo, Jawa Timur 61258",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9425,6 +9805,8 @@
         "JAYA ANUGRAH OKSIGEN",
         "0896-7581-4931",
         "Perum Pejaya Anugrah M-6, Pejaya Indah, Kramat Jegu, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257",
+        "",
+        "",
         "",
         ""
       ],
@@ -9436,6 +9818,8 @@
         "(031) 8964490",
         "Jl. Raya Bligo No.91, Bendungan, Bligo, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 61271",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9445,6 +9829,8 @@
         "SURABAYA OKSIGEN SBO 2",
         "0812-4993-4301",
         "Jl. Galangan No.10, Semampir Barat, Semampir, Kec. Sedati, Kabupaten Sidoarjo, Jawa Timur 61253",
+        "",
+        "",
         "",
         ""
       ],
@@ -9456,6 +9842,8 @@
         "0812-1652-0449",
         "Ds Sumberejo, RT.5/RW.1, Jati, Kec. Wonoayu, Kabupaten Sidoarjo, Jawa Timur 61226",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9465,6 +9853,8 @@
         "Sumber Baru oxygen isi ulang",
         "0852-3641-6676",
         "Jl. Ngelom Rolak No.04, Ngelom, Kec. Taman, Kabupaten Sidoarjo, Jawa Timur 61257",
+        "",
+        "",
         "",
         ""
       ],
@@ -9476,6 +9866,8 @@
         "(031) 99010315",
         "Jl. Lingkar Timur Km 5,5 Komplek Pergudangan Safe N' Lock block K1726-1729, Rangkah Kidul, Kecamatan Sidoarjo, Rangkah Kidul, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61232",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9485,6 +9877,8 @@
         "Jual Tabung Oksigen Medis dan Industri Gedangan",
         "0821-3454-6616",
         "Griya Permata Gedangan i5 no. 20 toko depan alfamart, Sikep, Keboansikep, Kec. Gedangan, Kabupaten Sidoarjo, Jawa Timur 61254",
+        "",
+        "",
         "",
         ""
       ],
@@ -9496,6 +9890,8 @@
         "0878-3842-1174",
         "No., Jl. Raya Taman Tiara No.27, Tamantiara, Pagerwojo, Kec. Buduran, Kabupaten Sidoarjo, Jawa Timur 61252",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9505,6 +9901,8 @@
         "Carolina Perdana",
         "0812-1620-297",
         "Jl. Raya Surabaya - Malang No.KM.40, Putat, Ngerong, Kec. Gempol, Pasuruan, Jawa Timur 67155",
+        "",
+        "",
         "",
         ""
       ],
@@ -9516,6 +9914,8 @@
         "0851-0117-6345",
         "Perum Permata, Jl. Cendana VI No.31, Pekuncen, Raci Tengah, Kec. Sidayu, Kabupaten Gresik, Jawa Timur 61153",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9525,6 +9925,8 @@
         "Oksigen Sidayu Gresik",
         "0851-0117-6345",
         "Perum Permata Sidayu Residence, Jl. Cendana VI No.31, Pekuncen, Raci Tengah, Kec. Sidayu, Kabupaten Gresik, Jawa Timur 61153",
+        "",
+        "",
         "",
         ""
       ],
@@ -9536,6 +9938,8 @@
         "0817-5051-539",
         "Pliyan, Tanggumong, Sampang, Sampang Regency, East Java 69216",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9545,6 +9949,8 @@
         "Merak Oxygen",
         "(0354) 689402",
         "Gg 01 NO. 23, Jl. Slamet Riadi, Banjaran, Kec. Kota Kediri, Kota Kediri, Jawa Timur 64124",
+        "",
+        "",
         "",
         ""
       ],
@@ -9556,6 +9962,8 @@
         "0812-5963-9990",
         "Jl. Untung Surapati, Kaibon, Kertobanyon, Kec. Geger, Madiun, Jawa Timur 63171",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9565,6 +9973,8 @@
         "MITRA OKSIGEN MADIUN",
         "0851-0053-9618",
         "Jl. Salak Bar. IV No.16, Taman, Kec. Taman, Kota Madiun, Jawa Timur 63131",
+        "",
+        "",
         "",
         ""
       ],
@@ -9576,6 +9986,8 @@
         "0853-3944-2653",
         "Unnamed Road, Kuncen, Kec. Taman, Kota Madiun, Jawa Timur 63135",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9585,6 +9997,8 @@
         "OKSIGEN GS BANYUWANGI",
         "0813-3674-9788",
         "Jl. Bawean No.10, SUKOWIDI, Klatak, Kec. Kalipuro, Kabupaten Banyuwangi, Jawa Timur 68421",
+        "",
+        "",
         "",
         ""
       ],
@@ -9596,6 +10010,8 @@
         "0853-3085-7095",
         "perumahan ggm 2, Jl. KH. Ahmad Kholil No.No, Dusun Cangaan, kudul, Kec. Genteng, Kabupaten Banyuwangi, Jawa Timur 68486",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9605,6 +10021,8 @@
         "UD. Cakra Oksigen",
         "(0321) 392963",
         "Jl. Gajah Mada No.77, Mergelo, Gedongan, Kec. Magersari, Kota Mojokerto, Jawa Timur 61319",
+        "",
+        "",
         "",
         ""
       ],
@@ -9616,6 +10034,8 @@
         "0852-5723-3263",
         "Tegal Kalong, Kemuningsari Kidul, Jenggawah, Jember Regency, East Java 68171",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9625,6 +10045,8 @@
         "Toko Alkes Jember Sapta Medika",
         "0823-1625-7039",
         "Jl. Moch. Seruji No.26, Cangkring, Patrang, Kec. Patrang, Kabupaten Jember, Jawa Timur 68111",
+        "",
+        "",
         "",
         ""
       ],
@@ -9636,6 +10058,8 @@
         "0821-4378-1687",
         "Jl. Hartono, Ledok Kulon Tiga, Ledok Wetan, Kec. Bojonegoro, Kabupaten Bojonegoro, Jawa Timur 62112",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9645,6 +10069,8 @@
         "OKSIS MUTIARA GAS",
         "0852-3011-6156",
         "Jl. Kademangan, Pojok, Kec. Pogalan, Kabupaten Trenggalek, Jawa Timur 66317",
+        "",
+        "",
         "",
         ""
       ],
@@ -9656,6 +10082,8 @@
         "0813-3503-7773",
         "Sukabumi, Mayangan, Probolinggo City, East Java 67219",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9665,6 +10093,8 @@
         "Oxygen",
         "(0355) 33688",
         "Jl. Basuki Rahmat No.24, Kenayan, Kec. Tulungagung, Kabupaten Tulungagung, Jawa Timur 66212",
+        "",
+        "",
         "",
         ""
       ],
@@ -9676,6 +10106,8 @@
         "0822-8278-8811",
         "Depan BRI, Jl Raya Pandean kelurahan tangkil, Tangkil, pandean, Wlingi, Blitar, East Java 66184",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9684,6 +10116,8 @@
         "Surabaya",
         "CV Goti",
         "031 5027264, 5045780, 085733893933",
+        "",
+        "",
         "",
         "",
         ""
@@ -9696,6 +10130,8 @@
         "031 88188279, 087855961117, 082233077735",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9706,6 +10142,8 @@
         "081333069814",
         " Jl. Gubeng Kertajaya V. E No.20, Airlangga, Kec. Gubeng, Kota SBY, ",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9714,6 +10152,8 @@
         "Surabaya",
         "Kurir Tabung Oksigen",
         "085606023397, 0881026612334, 081515564440",
+        "",
+        "",
         "",
         "",
         ""
@@ -9726,6 +10166,8 @@
         "081331301100",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9735,6 +10177,8 @@
         "Samator Gas Industri Sidoarjo\n",
         "031-8530981, 082245662474",
         "Kawasan Industri Benteng Tunggal Blok A-2 Jalan Muncul, Gedangan, Sidoarjo",
+        "",
+        "",
         "",
         ""
       ],
@@ -9746,6 +10190,8 @@
         "08123070552",
         "Jalan Raya Kemangsem Km 52 Bolongbendo, Krian, Sidoarjo",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9754,6 +10200,8 @@
         "Gresik",
         "Samator Filling Station Driyorejo",
         "031-7507050, 089626883009",
+        "",
+        "",
         "",
         "",
         ""
@@ -9766,6 +10214,8 @@
         "031-7482230, 031-7482231, 0852349737",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9774,6 +10224,8 @@
         "Sidoarjo",
         "UDD PMI Sidoarjo",
         "081235184888, 085850388058, 08133138009",
+        "",
+        "",
         "",
         "",
         ""
@@ -9786,6 +10238,8 @@
         "081555760927",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9794,6 +10248,8 @@
         "Lumajang",
         "UDD PMI Lumajang",
         "082226552872, 082232694752",
+        "",
+        "",
         "",
         "",
         ""
@@ -9806,6 +10262,8 @@
         "-",
         "-",
         "http://infocovid19.jatimprov.go.id/",
+        "",
+        "",
         ""
       ],
       [
@@ -9814,6 +10272,8 @@
         "Kab. Tuban",
         "UDD PMI Kab. Tuban",
         "082332099111, 082332095656, 081216959029",
+        "",
+        "",
         "",
         "",
         ""
@@ -9826,6 +10286,8 @@
         "0341 326788, 353023",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9834,6 +10296,8 @@
         "Malang",
         "Prima Guna Gas Sawojajar",
         "085804968848",
+        "",
+        "",
         "",
         "",
         ""
@@ -9846,6 +10310,8 @@
         "081522411264",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9854,6 +10320,8 @@
         "Malang",
         "Delta Laboratorium",
         "082132660651",
+        "",
+        "",
         "",
         "",
         ""
@@ -9866,6 +10334,8 @@
         "085336087050",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9874,6 +10344,8 @@
         "Malang",
         "Alfatih Oksigen Medis",
         "08112820102",
+        "",
+        "",
         "",
         "",
         ""
@@ -9886,6 +10358,8 @@
         "081332904024, 0341820673",
         "Jl. Raya Watu Diskon, RT 11 RW 07, Kendalpayak, Pakisaji, Malang",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9895,6 +10369,8 @@
         "UD Prima Gas ",
         "0321-322684",
         "Jl. RA. Kartini 17-19 Mojokerto",
+        "",
+        "",
         "",
         ""
       ],
@@ -9906,6 +10382,8 @@
         "085646399544",
         "Jl. Koperasi Gg. 4 No. 6",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9915,6 +10393,8 @@
         "Bidan Niken Kinesti",
         "0813309916890",
         "Jl Jeruk RT 11 RW 06 Dsn. Kedungbajul Ds Pulogedang Kec. Tembelang",
+        "",
+        "",
         "",
         ""
       ],
@@ -9926,6 +10406,8 @@
         "081238046010",
         "Western Village Blok C1/22 , Sememi , Benowo , Surabaya",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9935,6 +10417,8 @@
         "Mitra Gas",
         "082131192546",
         "Jl Gubeng Kertajaya 7H no 12",
+        "",
+        "",
         "",
         ""
       ],
@@ -9946,6 +10430,8 @@
         "089514689200, 083830679918, 087855066195",
         "Jl. Joyoboyo no. 29, Sawunggaling, Wonokromo, Surabaya",
         "https://www.instagram.com/poskobersamarelawansby/",
+        "",
+        "",
         ""
       ],
       [
@@ -9954,6 +10440,8 @@
         "Surabaya",
         "Pak Ferdi",
         "085733346325",
+        "",
+        "",
         "",
         "",
         ""
@@ -9966,6 +10454,8 @@
         "082234504538, 031-3952340",
         "Jl KIG Raya Utara Blok K, Roomo, Manyar, Gresik\nZuni Hidayati Setyoningsih",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9974,6 +10464,8 @@
         "Surabaya",
         "CV Berkat Alam Sejahtera",
         "085645670050. 081230121988",
+        "",
+        "",
         "",
         "",
         ""
@@ -9986,6 +10478,8 @@
         "089612607424, 081330839336",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -9996,6 +10490,8 @@
         "082244668606",
         "",
         "instagram.com/oxysubid",
+        "",
+        "",
         ""
       ],
       [
@@ -10006,6 +10502,8 @@
         "(031) 3820003, 085100914328",
         "Jl. Kenjeran No. 470, Surabaya",
         "https://drive.google.com/open?id=1rmS1gdoKvgQn196a--6uM1AbNE-8c2Cr",
+        "",
+        "",
         ""
       ],
       [
@@ -10016,6 +10514,8 @@
         "085232494490",
         "Jl. Lingkar Timur RT 5 RW 5 (Komp. Industri dan Pergudangan Safe n Lock Blok AJ No 5973",
         "https://drive.google.com/open?id=1NsXZIeD-ilIVfDICVhu5t-pJ06wbuLfN",
+        "",
+        "",
         ""
       ],
       [
@@ -10024,6 +10524,8 @@
         "Surabaya",
         "One Care Ambulance",
         "0816645997",
+        "",
+        "",
         "",
         "",
         ""
@@ -10036,6 +10538,8 @@
         "082141375400",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10045,6 +10549,8 @@
         "Surabaya",
         "081232570191",
         "Pacar kembang",
+        "",
+        "",
         "",
         ""
       ],
@@ -10056,6 +10562,8 @@
         "085258416997",
         "Pamekasan",
         "https://drive.google.com/open?id=1Vr_7HinC7d8icGcLejgSEoIuVNICFVyj",
+        "",
+        "",
         ""
       ],
       [
@@ -10066,6 +10574,8 @@
         "112",
         "Jl. Tambaksari, Tambaksari, Kec. Tambaksari, Kota SBY, Jawa Timur 60136",
         "https://drive.google.com/open?id=1QSvNFcrzhw1xEfK6P1iQwsEu4HXQqlEK , instagram.com/p/CRA2AxHsYU7/?utm_medium=copy_link",
+        "",
+        "",
         ""
       ],
       [
@@ -10075,6 +10585,8 @@
         "Djalil Oksigen",
         "082334222588",
         "Jl. Tanjung No.108/146, Pakunden, Kec. Sukorejo, Kota Blitar, Jawa Timur 67122",
+        "",
+        "",
         "",
         ""
       ],
@@ -10086,6 +10598,8 @@
         "03139928780",
         "Jl. Jaksa Agung Suprapto Gresik",
         "instagram.com/pemkabgresik , gresikkab.go.id",
+        "",
+        "",
         ""
       ],
       [
@@ -10096,6 +10610,8 @@
         "Salman 089654453687, Rahman 081216556554, Ummah 085335984799",
         "Jl. Sutorejo No 59 Surabaya",
         "https://www.instagram.com/p/CRC2xdbtRD6/?utm_source=ig_web_copy_link",
+        "",
+        "",
         ""
       ],
       [
@@ -10104,6 +10620,8 @@
         "Malang Raya",
         "Wiu Wiu Gratis",
         "087700607700",
+        "",
+        "",
         "",
         "",
         ""
@@ -10116,6 +10634,8 @@
         "081333104095",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10124,6 +10644,8 @@
         "Bojonegoro",
         "Bina Mulia Bojonegoro",
         "082232435665",
+        "",
+        "",
         "",
         "",
         ""
@@ -10136,6 +10658,8 @@
         "082247515151",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10144,6 +10668,8 @@
         "Malang Raya",
         "Ambulans YDSF Malang",
         "085100115355",
+        "",
+        "",
         "",
         "",
         ""
@@ -10156,6 +10682,8 @@
         "08113197112, 08113077112",
         "",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10164,6 +10692,8 @@
         "Gresik",
         "Kabar Panceng",
         "082117329469",
+        "",
+        "",
         "",
         "",
         ""
@@ -10176,7 +10706,9 @@
         "081331780880, 085859808000",
         "Jl. Raya Kedung Baruk 25-28, Surabaya",
         "http://www.samator-oxypure.com/product/detail/samator-oxypure-gox",
-        "https://drive.google.com/open?id=1095voaSND4AJ8GP8mF1jGSutX_CwDrWS"
+        "https://drive.google.com/open?id=1095voaSND4AJ8GP8mF1jGSutX_CwDrWS",
+        "",
+        ""
       ],
       [
         "Donor Plasma",
@@ -10186,7 +10718,9 @@
         "https://linktr.ee/donorplasma",
         "",
         "https://linktr.ee/donorplasma",
-        "https://drive.google.com/open?id=1m_AEVZClIJwVTIf1UM0v6u-xDTWG-ZxW"
+        "https://drive.google.com/open?id=1m_AEVZClIJwVTIf1UM0v6u-xDTWG-ZxW",
+        "",
+        ""
       ],
       [
         "Layanan Isolasi Mandiri",
@@ -10194,6 +10728,8 @@
         "Surabaya",
         "Dapur Umum Surabaya",
         "082335529620",
+        "",
+        "",
         "",
         "",
         ""
@@ -10206,6 +10742,8 @@
         "0895333310976",
         "",
         "https://drive.google.com/open?id=1UXcAjUT_f5-6XjP1WTGgJhMgWbpVptTq",
+        "",
+        "",
         ""
       ],
       [
@@ -10215,6 +10753,8 @@
         "Hotel Arcadia",
         "",
         "Jl. Rajawali No. 9-11",
+        "",
+        "",
         "",
         ""
       ],
@@ -10226,6 +10766,8 @@
         "",
         "Jl. Ahmad Yani No. 71",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10235,6 +10777,8 @@
         "Hotel Harris Gubeng",
         "",
         "Jl. Bangka No. 08-18",
+        "",
+        "",
         "",
         ""
       ],
@@ -10246,6 +10790,8 @@
         "",
         "Jl. Mayjen HR Muhammad",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10255,6 +10801,8 @@
         "Holiday Inn Express",
         "",
         "Jl. Kedungdoro No.54-58",
+        "",
+        "",
         "",
         ""
       ],
@@ -10266,6 +10814,8 @@
         "",
         "Jl. Jemursari Raya 110",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10275,6 +10825,8 @@
         "Hotel Kokoon",
         "",
         "Jl. Slompretan No. 26",
+        "",
+        "",
         "",
         ""
       ],
@@ -10286,6 +10838,8 @@
         "",
         "Jl. Raya Jemursari No. 206-208",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10295,6 +10849,8 @@
         "Hotel Maxone DH",
         "",
         "Jl Dharmahusada No. 189",
+        "",
+        "",
         "",
         ""
       ],
@@ -10306,6 +10862,8 @@
         "",
         "Jl. Ahmad Yani No. 176-178",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10315,6 +10873,8 @@
         "Hotel Premiere",
         "",
         "Jl. Raya Bandara Juanda No. 73",
+        "",
+        "",
         "",
         ""
       ],
@@ -10326,6 +10886,8 @@
         "",
         "Jl. Mayjen Sungkono No. 120",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10335,6 +10897,8 @@
         "Surabaya Suite",
         "",
         "Jl. Pemuda No. 33",
+        "",
+        "",
         "",
         ""
       ],
@@ -10346,6 +10910,8 @@
         "",
         "Jl. Raya Bandara Juanda No. 188",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10355,6 +10921,8 @@
         "Swiss Bellin Tunjungan",
         "",
         "Jl. Tunjungan No. 101",
+        "",
+        "",
         "",
         ""
       ],
@@ -10366,6 +10934,8 @@
         "",
         "Jl. Embong Kenongo No. 11-17",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10375,6 +10945,8 @@
         "Hotel 88 Embong Malang",
         "",
         "Jl. Embong Malang No. 84",
+        "",
+        "",
         "",
         ""
       ],
@@ -10386,6 +10958,8 @@
         "",
         "Jl. Embong Malang No. 80-85",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10395,6 +10969,8 @@
         "Hotel Oakwood",
         "",
         "Jl. Kertajaya Indah No. 79",
+        "",
+        "",
         "",
         ""
       ],
@@ -10406,6 +10982,8 @@
         "",
         "Bandara Internasional Juanda T1",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10415,6 +10993,8 @@
         "RS PHC Surabaya",
         "082316006000",
         "Jl. Prapat Kurung Selatan No. 1",
+        "",
+        "",
         "",
         ""
       ],
@@ -10426,6 +11006,8 @@
         "087788400070",
         "",
         "instagram.com/cktravel_id",
+        "",
+        "",
         ""
       ],
       [
@@ -10434,6 +11016,8 @@
         "Surabaya",
         "",
         "081249675890, 081259448635",
+        "",
+        "",
         "",
         "",
         ""
@@ -10446,7 +11030,9 @@
         "bit.ly/DaftarVaksinKejaksaanHBA2021",
         "Jl. Raya Dukuh Kupang No. 122-124, Sawahan, Dukuhpakis",
         "",
-        "Selasa, 13 Juli, Jam 7 sampai 3"
+        "Selasa, 13 Juli, Jam 7 sampai 3",
+        "",
+        ""
       ],
       [
         "Oksigen ",
@@ -10455,6 +11041,8 @@
         "CV. Carolina Perdana",
         "0822 1036 1926",
         "Jl. Achmad Yani No. 79 Lamongan /  RS. Citra Medika ke timur 100 m",
+        "",
+        "",
         "",
         ""
       ],
@@ -10466,6 +11054,8 @@
         "0822 1036 1926",
         "Dusun Mayong Ngablak RT I / RW II, Desa Ngablak, Kec. Karangbinangun, Kab. Lamongan",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10476,6 +11066,8 @@
         "0857 3078 1105",
         "Jl. Sunan Drajad No. 168 Lamongan / Perempatan Pasar Kidul ke arah selatan.",
         "https://www.facebook.com/groups/283888298795105/posts/1195509174299675/?comment_id=1195638707620055",
+        "",
+        "",
         ""
       ],
       [
@@ -10485,6 +11077,8 @@
         "Nusantara oksigen sidoarjo",
         "0856452187760, 085648959597",
         " Sunan ampel no 20, sidoarjo",
+        "",
+        "",
         "",
         ""
       ],
@@ -10496,6 +11090,8 @@
         "81,553,879,155,082,100,000,000,000,000,000,000",
         "Gubeng kertajaya 7H no.12",
         "",
+        "",
+        "",
         ""
       ],
       [
@@ -10505,6 +11101,8 @@
         "Cv carolina perdana",
         "082244756559/031,8987278,082232402240",
         "Jl. Joyoboyo no.70",
+        "",
+        "",
         "",
         ""
       ],
@@ -10516,7 +11114,9 @@
         "087855961117,031-88188279,082233077735",
         "Jl. Raya gunung sari 112B",
         "",
-        "Buka 24 jam, bisa delivery"
+        "Buka 24 jam, bisa delivery",
+        "",
+        ""
       ],
       [
         "Layanan Isolasi Mandiri",
@@ -10526,7 +11126,9 @@
         "085233202915",
         "Jl. Raya Ngijo Karangploso No.25, Kendalsari, Ngijo, Kec. Karang Ploso, Malang, Jawa Timur 65152",
         "https://www.instagram.com/p/CRBUNmUJNgN/",
-        "Layanan Homecare Isoman berbayar untuk pasien gejala ringan"
+        "Layanan Homecare Isoman berbayar untuk pasien gejala ringan",
+        "",
+        ""
       ]
     ]
   },
@@ -10847,8 +11449,8 @@
         "Alamat",
         "Tautan",
         "Tambahan Informasi",
-        "Terakhir Diupdate",
-        "Status"
+        "Tanggal Verifikasi",
+        "Bentuk Verifikasi"
       ],
       [
         "Kontak Penting ",
@@ -12926,7 +13528,7 @@
         "",
         "isi ulang oksigen Rp 65 ribu/m3 - juga jual APD",
         "9 juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Oksigen",
@@ -12938,7 +13540,7 @@
         "",
         "tabung 1m/3 Rp1,85 juta. Isi ulang 1m3 Rp65 ribu. - juga jual APD",
         "9 juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Oksigen",
@@ -13094,7 +13696,7 @@
         "",
         "tersedia 6 unit",
         "9 juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Ambulans ",
@@ -13106,7 +13708,7 @@
         "http://www.ambulanceinti.com/?m=1",
         "",
         "8 Juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Ambulans ",
@@ -13118,7 +13720,7 @@
         "",
         "tersedia 2 unit",
         "9 Juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Ambulans ",
@@ -13130,7 +13732,7 @@
         "",
         "4 unit gratis untuk warga Makassar, layanan luar kota dikenakan tarif",
         "9 Juli '21",
-        "Telepon & cek via aplikasi Get Contact"
+        "Telepon & cek via aplikasi Getcontact"
       ],
       [
         "Lokasi Vaksin",
