@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
       integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q=="
       crossorigin="anonymous"
@@ -14,39 +21,63 @@
     />
   </head>
   <body>
-    <h1 class="is-size-3">Corona Sucks</h1>
+    <h1 class="has-text-warning is-size-3">Corona Sucks</h1>
+    <div>
+      <p class="has-text-warning">
+        Sumber data dari
+        <a href="https://www.wargabantuwarga.com/" target="_blank"
+          >wargabantuwarga</a
+        >
+      </p>
+      <p class="has-text-warning">
+        Kritik, saran, pertanyaan contact me on twitter
+        <a href="https://twitter.com/akane10_" target="_blank">@akane10_</a>
+      </p>
+      <p class="has-text-warning">
+        Jika menurutmu ini berguna please share it, thank you
+      </p>
+    </div>
     <div class="">
       <!-- DROPDOWN -->
       <div class="columns is-centered">
-        <div class="field is-grouped">
-          <div class="control">
-            <div class="dropdown" id="drop">
-              <div class="dropdown-trigger">
-                <button
-                  class="button"
-                  aria-haspopup="true"
-                  aria-controls="dropdown-menu3"
-                  onclick="show_dropdown()"
-                >
-                  <span id="location">Lokasi</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </button>
-              </div>
-              <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                <div class="dropdown-content" id="drop-content"></div>
+        <div class="column">
+          <!-- <div class="field is-grouped is-grouped-centered"> -->
+          <div class="field has-addons has-addons-centered">
+            <div class="control">
+              <div class="dropdown" id="drop">
+                <div class="dropdown-trigger">
+                  <button
+                    class="button"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu3"
+                    onclick="show_dropdown()"
+                  >
+                    <span id="location">Lokasi</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                  <div class="dropdown-content" id="drop-content"></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="control search">
-            <input class="input" id="search" type="text" placeholder="Cari" onkeyup="search()" />
+            <div class="control search">
+              <input
+                class="input"
+                id="search"
+                type="text"
+                placeholder="Cari"
+                onkeyup="search()"
+              />
+            </div>
           </div>
         </div>
       </div>
 
       <!-- TABLE -->
-      <div>
+      <div style="padding-bottom: 4em">
         <table class="table">
           <thead>
             <tr id="table-head"></tr>
@@ -54,6 +85,26 @@
           <tbody id="table-body"></tbody>
         </table>
       </div>
+    </div>
+
+    <div>
+      <footer class="footer has-background-dark">
+        <div class="content has-text-centered">
+          <div>
+            <a
+              rel="noreferrer"
+              href="https://github.com/akane10/corona_sucks"
+              target="_blank"
+              class="sm has-text-link"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="block">
+            <h4 class="has-text-warning">Fuck Corona</h4>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <script src="/main.js"></script>

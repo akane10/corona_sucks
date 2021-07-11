@@ -39,6 +39,7 @@ function change_data(i) {
   SELECTED_DATA = { ...DATA[i] };
   CURRENT_INDEX = i;
   LOCATION.innerText = SELECTED_DATA.lokasi;
+  search();
   render_data();
   show_dropdown();
 }
