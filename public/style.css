@@ -12,6 +12,10 @@ table.center {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
+.search {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
 table {
 	border: 1px solid #ccc;
 	border-collapse: collapse;

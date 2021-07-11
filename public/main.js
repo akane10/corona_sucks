@@ -1,13 +1,30 @@
 const URL = "http://localhost:8000/data.json";
 const DROPDOWN_CONTENT = document.getElementById("drop-content");
 const DROPDOWN = document.getElementById("drop");
+const LOCATION = document.getElementById("location");
 const TABLE_HEAD = document.getElementById("table-head");
 const TABLE_BODY = document.getElementById("table-body");
 
 let TITLES = [];
 let DATA = [];
+let CURRENT_INDEX = 0;
 let DROPDOWN_SHOW = false;
 let SELECTED_DATA = {};
+
+function search() {
+  const input = document.getElementById("search");
+  const keyword = input.value.toLowerCase();
+
+  const x = DATA[CURRENT_INDEX].data.filter((item) => {
+    return item
+      .map((ii) => ii.toLowerCase())
+      .filter((ii) => ii.includes(keyword)).length;
+  });
+
+  SELECTED_DATA.data = x;
+
+  render_data();
+}
 
 function show_dropdown() {
   if (DROPDOWN_SHOW) {
@@ -20,7 +37,9 @@ function show_dropdown() {
 }
 
 function change_data(i) {
-  SELECTED_DATA = DATA[i];
+  SELECTED_DATA = { ...DATA[i] };
+  CURRENT_INDEX = i;
+  LOCATION.innerText = SELECTED_DATA.lokasi;
   render_data();
   show_dropdown();
 }
