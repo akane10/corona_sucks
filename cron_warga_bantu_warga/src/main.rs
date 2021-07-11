@@ -68,8 +68,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let elapsed = now.elapsed();
         println!("finished {:#?}", elapsed);
 
-
-
         println!("{}", "writing file...");
         let now = Instant::now();
         let file = File::create("../public/data.json")?;
