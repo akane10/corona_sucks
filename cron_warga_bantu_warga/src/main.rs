@@ -3,7 +3,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::from_value;
 use serde_json::Value;
 use std::{collections::HashMap, fs::File};
-use tokio::time;
+// use tokio::time;
+use std::time::Instant;
 
 type Hjson = HashMap<String, Value>;
 
@@ -60,15 +61,21 @@ pub async fn fetch_data() -> Result<Vec<DataSheets>, Box<dyn std::error::Error>>
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv::dotenv().ok();
 
-    let mut interval = time::interval(time::Duration::from_secs(1 * 3600));
     loop {
-        interval.tick().await;
         println!("{}", "fetching data...");
+        let now = Instant::now();
         let data = fetch_data().await?;
+        let elapsed = now.elapsed();
+        println!("finished {:#?}", elapsed);
+
+
 
         println!("{}", "writing file...");
+        let now = Instant::now();
         let file = File::create("../public/data.json")?;
         serde_json::to_writer_pretty(file, &data)?;
+        let elapsed = now.elapsed();
+        println!("finished {:#?}", elapsed);
         println!("{}", "done");
     }
 }
