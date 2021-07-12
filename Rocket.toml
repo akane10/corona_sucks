@@ -1,0 +1,7 @@
+[production]
+address = "localhost"
+port = 8008
+workers = 16
+keep_alive = 5
+log = "critical"
+limits = { forms = 32768 }
