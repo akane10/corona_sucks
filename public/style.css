@@ -31,6 +31,8 @@ table.center {
 a[href]:hover {
 	color: yellow;
 }
+
+/* https://codepen.io/AllThingsSmitty/pen/MyqmdM */
 table {
 	border: 1px solid #ccc;
 	border-collapse: collapse;
