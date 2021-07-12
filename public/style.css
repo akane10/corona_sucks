@@ -21,120 +21,88 @@ table.center {
 	margin: 0 auto;
 }
 .footer {
-  background-color: #222831;
+	background-color: #222831;
 }
 .sm {
-  margin: 10px;
-  font-size: 40px;
-  /* color: hsl(48, 100%, 60%); */
+	margin: 10px;
+	font-size: 40px;
+	/* color: hsl(48, 100%, 60%); */
 }
-a:hover {
-  background-color: yellow;
+a[href]:hover {
+	color: yellow;
 }
-/* table { */
-/* border: 1px solid #ccc; */
-/* border-collapse: collapse; */
-/* margin: 0; */
-/* padding: 0; */
-/* width: 100%; */
-/* table-layout: fixed; */
-/* } */
+table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
 
-/* table caption { */
-/* font-size: 1.5em; */
-/* margin: 0.5em 0 0.75em; */
-/* } */
+table caption {
+	font-size: 1.5em;
+	margin: 0.5em 0 0.75em;
+}
 
-/* table tr { */
-/* background-color: #f8f8f8; */
-/* border: 1px solid #ddd; */
-/* padding: 0.35em; */
-/* } */
+table tr {
+	border: 1px solid #ddd;
+	padding: 0.35em;
+}
 
-/* table th, */
-/* table td { */
-/* padding: 0.625em; */
-/* text-align: center; */
-/* } */
+table th,
+table td {
+	padding: 0.625em;
+	text-align: center;
+}
 
-/* table th { */
-/* font-size: 0.85em; */
-/* letter-spacing: 0.1em; */
-/* text-transform: uppercase; */
-/* } */
-@media only screen and (max-width: 760px),
-	(min-device-width: 768px) and (max-device-width: 1024px) {
-	/* Force table to not be like tables anymore */
-	table,
-	thead,
-	tbody,
-	th,
-	td,
-	tr {
-		display: block;
+table th {
+	font-size: 0.85em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 760px) {
+	table {
+		border: 0;
 	}
 
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
+	table caption {
+		font-size: 1.3em;
 	}
 
-	tr {
-		border: 1px solid #ccc;
-	}
-
-	td {
-		/* Behave  like a "row" */
+	table thead {
 		border: none;
-		border-bottom: 1px solid #eee;
-		position: relative;
-		padding-left: 50%;
-	}
-
-	td:before {
-		/* Now like a table header */
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
 		position: absolute;
-		/* Top/left values mimic padding */
-		top: 10px;
-		left: 6px;
-		width: 45%;
-		padding-right: 10px;
-		white-space: nowrap;
+		width: 1px;
 	}
 
-	/*
-	Label the data
-	*/
-	td:nth-of-type(1):before {
-		content: "Kebutuhan";
+	table tr {
+		border-bottom: 3px solid #ddd;
+		display: block;
+		margin-bottom: 0.625em;
 	}
-	td:nth-of-type(2):before {
-		content: "Keterangan";
+
+	table td {
+		border-bottom: 1px solid #ddd;
+		display: block;
+		font-size: 0.8em;
+		text-align: right;
 	}
-	td:nth-of-type(3):before {
-		content: "Lokasi";
+
+	table td::before {
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
-	td:nth-of-type(4):before {
-		content: "Penyedia";
-	}
-	td:nth-of-type(5):before {
-		content: "Kontak";
-	}
-	td:nth-of-type(6):before {
-		content: "Alamat";
-	}
-	td:nth-of-type(7):before {
-		content: "Tautan";
-	}
-	td:nth-of-type(8):before {
-		content: "Tambahan Informasi";
-	}
-	td:nth-of-type(9):before {
-		content: "Tanggal Verifikasi";
-	}
-	td:nth-of-type(10):before {
-		content: "Bentuk Verifikasi";
+
+	table td:last-child {
+		border-bottom: 0;
 	}
 }

@@ -53,11 +53,15 @@ function render_data() {
   });
   SELECTED_DATA.data.forEach((i) => {
     let x = "<tr>";
-    i.forEach((ii) => {
+    i.forEach((ii, index) => {
       if (ii.includes("http")) {
-        x += `<td><a href="${ii}">link</a></td>`;
+        x += `<td data-label="${SELECTED_DATA.title[index]}"><a href="${
+          ii ? ii : "-"
+        }" target="_blank">link</a></td>`;
       } else {
-        x += `<td>${ii}</td>`;
+        x += `<td data-label="${SELECTED_DATA.title[index]}">${
+          ii ? ii : "-"
+        }</td>`;
       }
     });
     x += "</tr>";
