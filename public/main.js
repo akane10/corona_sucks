@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://covid.yapie.me";
 const DROPDOWN_CONTENT = document.getElementById("drop-content");
 const DROPDOWN = document.getElementById("drop");
 const LOCATION = document.getElementById("location");

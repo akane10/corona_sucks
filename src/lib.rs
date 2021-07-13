@@ -5,6 +5,7 @@ extern crate rocket;
 use rocket::request::Request;
 use rocket_contrib::json::Json;
 use rocket_contrib::serve::StaticFiles;
+use rocket_cors;
 use std::error::Error;
 use std::fs;
 // use serde::{Deserialize, Serialize};
@@ -41,5 +42,6 @@ pub fn rocket_app() -> rocket::Rocket {
             StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/public")),
         )
         .mount("/list", routes![list])
+        .attach(rocket_cors::CorsOptions::default().to_cors().unwrap())
         .register(catchers![not_found, internal_error])
 }
