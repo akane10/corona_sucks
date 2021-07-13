@@ -114,33 +114,41 @@ async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Box<dyn st
     Ok(data)
 }
 
+async fn run(r_token: &str) -> Result<(), Box<dyn std::error::Error>> {
+    let access_token = refresh_token(r_token).await?;
+    let sheet_ids = get_sheets(&access_token).await?;
+
+    for (id, title) in sheet_ids {
+        if let Some(data) = fetch_data(id, &access_token).await? {
+            println!("{}", "writing file...");
+            let now = Instant::now();
+            let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
+            let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
+            let file = File::create(filename)?;
+            serde_json::to_writer_pretty(file, &data)?;
+            let elapsed = now.elapsed();
+            println!("finished {:#?}", elapsed);
+            println!("{}", "done");
+        } else {
+            println!("no data");
+        }
+    }
+
+    Ok(())
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv::dotenv().ok();
     let r_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
 
-    let mut interval = time::interval(time::Duration::from_secs(100));
+    let mut interval = time::interval(time::Duration::from_secs(10));
     loop {
         println!("start");
         interval.tick().await;
-        let access_token = refresh_token(r_token).await?;
-        let sheet_ids = get_sheets(&access_token).await?;
-
-        for (id, title) in sheet_ids {
-            if let Some(data) = fetch_data(id, &access_token).await? {
-                println!("{}", "writing file...");
-                let now = Instant::now();
-                let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
-                let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
-                let file = File::create(filename)?;
-                serde_json::to_writer_pretty(file, &data)?;
-                let elapsed = now.elapsed();
-                println!("finished {:#?}", elapsed);
-                println!("{}", "done");
-            } else {
-                println!("no data");
-            }
-
+        match run(r_token).await {
+            Err(err) => println!("{}", err),
+            _ => ()
         }
     }
 }
