@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000/data.json";
+const BASE_URL = "http://localhost:8000";
 const DROPDOWN_CONTENT = document.getElementById("drop-content");
 const DROPDOWN = document.getElementById("drop");
 const LOCATION = document.getElementById("location");
@@ -6,16 +6,33 @@ const TABLE_HEAD = document.getElementById("table-head");
 const TABLE_BODY = document.getElementById("table-body");
 
 let TITLES = [];
-let DATA = [];
+let LISTS = [];
+let DATA = {};
 let CURRENT_INDEX = 0;
 let DROPDOWN_SHOW = false;
 let SELECTED_DATA = {};
+
+function set_list() {
+  fetch(BASE_URL + "/list")
+    .then((response) => response.json())
+    .then((data) => {
+      LISTS = data;
+      TITLES = data.map((title) => {
+        return title.replace(/ /g, "").replace(".json", "");
+      });
+      TITLES.forEach((i, index) => {
+        DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${index})">${i}</a>`;
+      });
+      set_data(LISTS[0]);
+    });
+}
+set_list();
 
 function search() {
   const input = document.getElementById("search");
   const keyword = input.value.toLowerCase();
 
-  const data = DATA[CURRENT_INDEX].data.filter((item) => {
+  const data = DATA.data.filter((item) => {
     return item
       .map((ii) => ii.toLowerCase())
       .filter((ii) => ii.includes(keyword)).length;
@@ -36,11 +53,7 @@ function show_dropdown() {
 }
 
 function change_data(i) {
-  SELECTED_DATA = { ...DATA[i] };
-  CURRENT_INDEX = i;
-  LOCATION.innerText = SELECTED_DATA.lokasi;
-  search();
-  render_data();
+  set_data(LISTS[i]);
   show_dropdown();
 }
 
@@ -69,22 +82,18 @@ function render_data() {
   });
 }
 
-fetch(URL)
-  .then((response) => response.json())
-  .then((data) => {
-    TITLES = data.map(({ title }) => title);
-    DATA = data.map((i) => {
-      return {
-        lokasi: i.title,
-        title: i?.row_data[0],
-        data: i?.row_data.slice(1),
+function set_data(i) {
+  fetch(BASE_URL + "/data/" + i)
+    .then((response) => response.json())
+    .then((data) => {
+      SELECTED_DATA = {
+        lokasi: data.title,
+        title: data?.row_data[0] || [],
+        data: data?.row_data.slice(1) || [],
       };
-    });
-    TITLES.forEach((i, index) => {
-      DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${index})">${i}</a>`;
-    });
+      DATA = { ...SELECTED_DATA };
+      LOCATION.innerText = SELECTED_DATA.lokasi;
 
-    change_data(0);
-    render_data();
-    show_dropdown();
-  });
+      render_data();
+    });
+}

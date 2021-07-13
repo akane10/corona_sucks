@@ -35,7 +35,7 @@ async fn refresh_token(refresh_token: &str) -> Result<String, Box<dyn std::error
     Ok(token)
 }
 
-pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Vec<DataSheets>, Box<dyn std::error::Error>> {
+pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<DataSheets>, Box<dyn std::error::Error>> {
     let req_body = json!({
       "includeGridData": true,
       "dataFilters": [
@@ -87,7 +87,11 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Vec<DataShe
     let elapsed = now.elapsed();
     println!("finished {:#?}", elapsed);
 
-    Ok(data)
+    if data.len() > 0 {
+        Ok(Some(data[0].clone()))
+    } else {
+        Ok(None)
+    }
 }
 
 async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Box<dyn std::error::Error>> {
