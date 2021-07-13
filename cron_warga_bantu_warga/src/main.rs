@@ -3,7 +3,7 @@ use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use serde_json::{from_value, json};
 use serde_json::Value;
-use std::{collections::HashMap, fs::File};
+use std::{collections::HashMap, fs::File, path::Path};
 use tokio::time;
 use std::time::Instant;
 
@@ -127,7 +127,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
             println!("{}", "writing file...");
             let now = Instant::now();
-            let filename = format!("../public/data/{}.json", title.replace(" ", "").to_lowercase());
+            let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
+            let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
             let file = File::create(filename)?;
             serde_json::to_writer_pretty(file, &data)?;
             let elapsed = now.elapsed();

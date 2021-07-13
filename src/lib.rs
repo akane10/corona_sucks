@@ -3,11 +3,28 @@
 extern crate rocket;
 
 use rocket::request::Request;
-// use rocket_contrib::json::Json;
+use rocket_contrib::json::Json;
 use rocket_contrib::serve::StaticFiles;
+use std::error::Error;
+use std::fs;
 // use serde::{Deserialize, Serialize};
-// use serde_json::{json, Value};
-// use std::error::Error;
+// use serde_json::json;
+// use serde_json::Value;
+
+#[get("/")]
+fn list() -> Result<Json<Vec<String>>, Box<dyn Error>> {
+    let mut list = Vec::new();
+    let paths = fs::read_dir(concat!(env!("CARGO_MANIFEST_DIR"), "/public/data"))?;
+    for path in paths {
+        let p = path?.file_name().to_str().unwrap().to_string();
+        let split = p.split("/");
+        let vec: Vec<&str> = split.collect();
+        let file = vec[vec.len() - 1];
+        list.push(file.to_string());
+    }
+
+    Ok(Json(list))
+}
 
 #[catch(500)]
 fn internal_error() -> &'static str {
@@ -23,5 +40,6 @@ pub fn rocket_app() -> rocket::Rocket {
             "/",
             StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/public")),
         )
+        .mount("/list", routes![list])
         .register(catchers![not_found, internal_error])
 }
