@@ -142,7 +142,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv::dotenv().ok();
     let r_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
 
-    let mut interval = time::interval(time::Duration::from_secs(10));
+    let mut interval = time::interval(time::Duration::from_secs(150));
     loop {
         println!("start");
         interval.tick().await;
