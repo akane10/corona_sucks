@@ -12,6 +12,14 @@ let CURRENT_INDEX = 0;
 let DROPDOWN_SHOW = false;
 let SELECTED_DATA = {};
 
+function set_loading(bool) {
+  if (bool) {
+    document.getElementById("loading").style.display = "block";
+  } else {
+    document.getElementById("loading").style.display = "none";
+  }
+}
+
 function set_list() {
   fetch(BASE_URL + "/list")
     .then((response) => response.json())
@@ -23,7 +31,8 @@ function set_list() {
       TITLES.forEach((i, index) => {
         DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${index})">${i}</a>`;
       });
-      set_data(LISTS[0]);
+      const index_jkt = TITLES.findIndex((i) => i === "jkt");
+      set_data(LISTS[index_jkt < 0 ? 0 : index_jkt]);
     });
 }
 set_list();
@@ -83,6 +92,7 @@ function render_data() {
 }
 
 function set_data(i) {
+  set_loading(true);
   fetch(BASE_URL + "/data/" + i)
     .then((response) => response.json())
     .then((data) => {
@@ -94,6 +104,8 @@ function set_data(i) {
       DATA = { ...SELECTED_DATA };
       LOCATION.innerText = SELECTED_DATA.lokasi;
 
+      set_loading(false);
+      search();
       render_data();
     });
 }
