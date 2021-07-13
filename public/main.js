@@ -4,6 +4,7 @@ const DROPDOWN = document.getElementById("drop");
 const LOCATION = document.getElementById("location");
 const TABLE_HEAD = document.getElementById("table-head");
 const TABLE_BODY = document.getElementById("table-body");
+const INPUT = document.getElementById("search");
 
 let TITLES = [];
 let LISTS = [];
@@ -37,9 +38,22 @@ function set_list() {
 }
 set_list();
 
+function delay(callback, ms) {
+  let timer = 0;
+  return function () {
+    let context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
+
+INPUT.addEventListener("keyup", delay(search, 1000));
+
 function search() {
-  const input = document.getElementById("search");
-  const keyword = input.value.toLowerCase();
+  const keyword = INPUT.value.toLowerCase();
 
   const data = DATA.data.filter((item) => {
     return item
