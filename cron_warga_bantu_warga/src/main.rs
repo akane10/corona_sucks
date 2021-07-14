@@ -1,6 +1,5 @@
 use reqwest::header::HeaderName;
 use serde::de::DeserializeOwned;
-use serde_json::map::Map;
 use serde::{Deserialize, Serialize};
 use serde_json::{from_value, json};
 use serde_json::Value;
@@ -81,29 +80,29 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
 
     let reader = BufReader::new(resp.as_bytes());
     let digest = sha256_digest(reader)?;
-    let sha = HEXUPPER.encode(digest.as_ref());
+    let sha: String = HEXUPPER.encode(digest.as_ref());
 
     let state_path = concat!(env!("CARGO_MANIFEST_DIR"), "/state.json");
     let file = File::open(state_path);
-    let mut s: Map<String, Value> = match file {
+    let mut s: HashMap<String, String> = match file {
         Ok(f) => {
             let reader = BufReader::new(f);
-            serde_json::from_reader(reader).unwrap_or(Map::new())
+            serde_json::from_reader(reader).unwrap_or(HashMap::new())
         }
         Err(e) => {
             println!("{}", e);
-            let map = Map::new();
+            let map = HashMap::new();
             map
         }
     };
 
     let is = match s.get(&sheet_id.to_string()) {
-        Some(val) => val.to_string() != sha,
+        Some(val) => val.ne(&sha),
         _ => false
     };
     if is {
         println!("insert {}: {}", sheet_id, sha);
-        s.insert(sheet_id.to_string(), Value::String(sha));
+        s.insert(sheet_id.to_string(), sha);
         let file = File::create(state_path)?;
         serde_json::to_writer_pretty(file, &s)?;
 
