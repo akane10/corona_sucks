@@ -10,6 +10,9 @@ use std::time::Instant;
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, Digest, SHA256};
 use std::io::{BufReader, Read};
+use error::Error;
+
+mod error;
 
 const URL: &str = "https://sheets.googleapis.com/v4/spreadsheets/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c:getByDataFilter";
 const URL_REFRESH: &str = "https://oauth2.googleapis.com/token";
@@ -22,7 +25,7 @@ pub struct DataSheets {
     row_data: Vec<Vec<String>>,
 }
 
-fn sha256_digest<R: Read>(mut reader: R) -> Result<Digest, Box<dyn std::error::Error>> {
+fn sha256_digest<R: Read>(mut reader: R) -> Result<Digest, Error> {
     let mut context = Context::new(&SHA256);
     let mut buffer = [0; 1024];
 
@@ -41,7 +44,7 @@ fn get_value<T: DeserializeOwned>(json: &Value, fallback: T) -> T {
     from_value(json.clone()).unwrap_or(fallback)
 }
 
-async fn refresh_token(refresh_token: &str) -> Result<String, Box<dyn std::error::Error>> {
+async fn refresh_token(refresh_token: &str) -> Result<String, Error> {
     let client_id: &str = &dotenv::var("CLIENT_ID").expect("Missing client id");
     let client_secret: &str = &dotenv::var("CLIENT_SECRET").expect("Missing client secret");
     let url = format!("{}?client_id={}&client_secret={}&refresh_token={}&grant_type=refresh_token", URL_REFRESH, client_id, client_secret, refresh_token);
@@ -50,11 +53,14 @@ async fn refresh_token(refresh_token: &str) -> Result<String, Box<dyn std::error
     let client = reqwest::Client::new();
     let resp = client.post(url).header(hdr, "0").send().await?.json::<Hjson>().await?;
 
-    let token = resp.get("access_token").unwrap().to_string();
-    Ok(token)
+    if let Some(token) = resp.get("access_token") {
+        Ok(token.to_string())
+    } else {
+        Err(Error::Others("failed to get access_token".to_string()))
+    }
 }
 
-pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<DataSheets>, Box<dyn std::error::Error>> {
+pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<DataSheets>, Error> {
     let req_body = json!({
       "includeGridData": true,
       "dataFilters": [
@@ -91,13 +97,17 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
         }
     };
 
-    if let None = s.get(&sheet_id.to_string()) {
+    let is = match s.get(&sheet_id.to_string()) {
+        Some(val) => val.to_string() == sha,
+        _ => false
+    };
+    if is {
         println!("insert {}: {}", sheet_id, sha);
         s.insert(sheet_id.to_string(), Value::String(sha));
         let file = File::create(state_path)?;
         serde_json::to_writer_pretty(file, &s)?;
 
-        let sheets_json: Value = serde_json::from_str(&resp).unwrap();
+        let sheets_json: Value = serde_json::from_str(&resp)?;
         let sheets: Vec<Value> = get_value(&sheets_json["sheets"], Vec::new());
 
         println!("{}", "parsing data...");
@@ -142,27 +152,29 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
 
 }
 
-async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Box<dyn std::error::Error>> {
+async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Error> {
     let hdr = HeaderName::from_static("content-length");
     let client = reqwest::Client::new();
     let resp = client.post(URL).header(hdr, "0").bearer_auth(access_token).send().await?.json::<Hjson>().await?;
 
-    let sheets_json = resp.get("sheets").unwrap();
-    let sheets: Vec<Value> = get_value(&sheets_json, Vec::new());
+    if let Some(sheets_json) = resp.get("sheets") {
+        let sheets: Vec<Value> = get_value(&sheets_json, Vec::new());
 
-    let data: Vec<(u64, String)> = sheets[1..]
-        .into_iter()
-        .map(|sheet| {
-             let id = from_value(sheet["properties"]["sheetId"].clone()).unwrap();
-             let title = from_value(sheet["properties"]["title"].clone()).unwrap();
-             (id, title)
-        })
-        .collect();
-
-    Ok(data)
+        let data: Vec<(u64, String)> = sheets[1..]
+            .into_iter()
+            .map(|sheet| {
+                 let id = from_value(sheet["properties"]["sheetId"].clone()).unwrap();
+                 let title = from_value(sheet["properties"]["title"].clone()).unwrap();
+                 (id, title)
+            })
+            .collect();
+        Ok(data)
+    } else {
+        Err(Error::Others("failed to get sheets".to_string()))
+    }
 }
 
-async fn run(r_token: &str) -> Result<(), Box<dyn std::error::Error>> {
+async fn run(r_token: &str) -> Result<(), Error> {
     let access_token = refresh_token(r_token).await?;
     let sheet_ids = get_sheets(&access_token).await?;
 
@@ -186,7 +198,7 @@ async fn run(r_token: &str) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> Result<(), Error> {
     dotenv::dotenv().ok();
     let r_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
 
