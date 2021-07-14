@@ -98,7 +98,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
     };
 
     let is = match s.get(&sheet_id.to_string()) {
-        Some(val) => val.to_string() == sha,
+        Some(val) => val.to_string() != sha,
         _ => false
     };
     if is {
