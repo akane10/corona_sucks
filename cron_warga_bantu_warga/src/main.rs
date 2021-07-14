@@ -82,11 +82,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
     let mut s: Map<String, Value> = match file {
         Ok(f) => {
             let reader = BufReader::new(f);
-            if let Ok(val) = serde_json::from_reader(reader) {
-                val
-            } else {
-                Map::new()
-            }
+            serde_json::from_reader(reader).unwrap_or(Map::new())
         }
         Err(e) => {
             println!("{}", e);
