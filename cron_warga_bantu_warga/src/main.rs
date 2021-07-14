@@ -151,7 +151,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
 
 }
 
-async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Error> {
+async fn get_sheets(access_token: &str) -> Result<Vec<(Option<u64>, Option<String>)>, Error> {
     let hdr = HeaderName::from_static("content-length");
     let client = reqwest::Client::new();
     let resp = client.post(URL).header(hdr, "0").bearer_auth(access_token).send().await?.json::<Hjson>().await?;
@@ -159,12 +159,16 @@ async fn get_sheets(access_token: &str) -> Result<Vec<(u64, String)>, Error> {
     if let Some(sheets_json) = resp.get("sheets") {
         let sheets: Vec<Value> = get_value(&sheets_json, Vec::new());
 
-        let data: Vec<(u64, String)> = sheets[1..]
+        let data: Vec<(Option<u64>, Option<String>)> = sheets[1..]
             .into_iter()
             .map(|sheet| {
-                 let id = from_value(sheet["properties"]["sheetId"].clone()).unwrap();
-                 let title = from_value(sheet["properties"]["title"].clone()).unwrap();
-                 (id, title)
+                 let id = from_value(sheet["properties"]["sheetId"].clone());
+                 let title = from_value(sheet["properties"]["title"].clone());
+
+                 match (id, title) {
+                     (Ok(id), Ok(title)) => (Some(id), Some(title)),
+                     _ => (None, None)
+                 }
             })
             .collect();
         Ok(data)
@@ -177,19 +181,24 @@ async fn run(r_token: &str) -> Result<(), Error> {
     let access_token = refresh_token(r_token).await?;
     let sheet_ids = get_sheets(&access_token).await?;
 
-    for (id, title) in sheet_ids {
-        if let Some(data) = fetch_data(id, &access_token).await? {
-            println!("{}", "writing file...");
-            let now = Instant::now();
-            let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
-            let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
-            let file = File::create(filename)?;
-            serde_json::to_writer_pretty(file, &data)?;
-            let elapsed = now.elapsed();
-            println!("finished {:#?}", elapsed);
-            println!("{}", "done");
-        } else {
-            println!("no data");
+    for x in sheet_ids {
+        match x {
+            (Some(id), Some(title)) => {
+                if let Some(data) = fetch_data(id, &access_token).await? {
+                    println!("{}", "writing file...");
+                    let now = Instant::now();
+                    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
+                    let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
+                    let file = File::create(filename)?;
+                    serde_json::to_writer_pretty(file, &data)?;
+                    let elapsed = now.elapsed();
+                    println!("finished {:#?}", elapsed);
+                    println!("{}", "done");
+                } else {
+                    println!("no data");
+                }
+            }
+            _ => ()
         }
     }
 
@@ -203,8 +212,8 @@ async fn main() -> Result<(), Error> {
 
     let mut interval = time::interval(time::Duration::from_secs(150));
     loop {
-        println!("start");
         interval.tick().await;
+        println!("start");
         match run(r_token).await {
             Err(err) => println!("{}", err),
             _ => ()
