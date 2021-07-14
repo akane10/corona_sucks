@@ -3,3 +3,4 @@
 /.env
 /*/.env
 /public/data/*
+*/state.json
