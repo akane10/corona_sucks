@@ -5,6 +5,7 @@ const LOCATION = document.getElementById("location");
 const TABLE_HEAD = document.getElementById("table-head");
 const TABLE_BODY = document.getElementById("table-body");
 const INPUT = document.getElementById("search");
+const INFO = document.getElementById("info");
 
 let TITLES = [];
 let LISTS = [];
@@ -121,5 +122,14 @@ function set_data(i) {
       set_loading(false);
       search();
       render_data();
+    })
+    .catch((e) => {
+      console.log(e);
+      set_loading(false);
+      INFO.innerHTML = "";
+      TABLE_HEAD.innerHTML = "";
+      TABLE_BODY.innerHTML = "";
+
+      INFO.innerHTML += `<h1 class="has-text-centered has-text-danger is-size-3">Ooppss Terjadi Error</h1>`;
     });
 }
