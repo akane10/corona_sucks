@@ -10,6 +10,7 @@ use data_encoding::HEXUPPER;
 use ring::digest::{Context, Digest, SHA256};
 use std::io::{BufReader, Read};
 use error::Error;
+use chrono::prelude::*;
 
 mod error;
 
@@ -22,6 +23,7 @@ type Hjson = HashMap<String, Value>;
 pub struct DataSheets {
     title: String,
     row_data: Vec<Vec<String>>,
+    updated_at: DateTime<Utc>
 }
 
 fn sha256_digest<R: Read>(mut reader: R) -> Result<Digest, Error> {
@@ -133,7 +135,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
                     .filter(|val| !val.into_iter().all(|x| x.is_empty()))
                     .collect();
 
-                DataSheets { title, row_data }
+                DataSheets { title, row_data, updated_at: Utc::now() }
             })
             .collect();
         let elapsed = now.elapsed();
