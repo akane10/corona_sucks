@@ -99,7 +99,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
 
     let is = match s.get(&sheet_id.to_string()) {
         Some(val) => val.ne(&sha),
-        _ => false
+        _ => true
     };
     if is {
         println!("insert {}: {}", sheet_id, sha);
