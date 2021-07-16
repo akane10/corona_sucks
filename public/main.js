@@ -6,6 +6,7 @@ const TABLE_HEAD = document.getElementById("table-head");
 const TABLE_BODY = document.getElementById("table-body");
 const INPUT = document.getElementById("search");
 const INFO = document.getElementById("info");
+const LAST_UPDATED = document.getElementById("last-updated");
 
 let TITLES = [];
 let LISTS = [];
@@ -22,6 +23,63 @@ function set_loading(bool) {
   }
 }
 
+// https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
+function timeSince(date) {
+  const seconds = Math.floor((new Date() - date) / 1000);
+
+  let interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " tahun";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " bulan";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " hari";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " jam";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " menit";
+  }
+  return Math.floor(seconds) + " detik";
+}
+
+async function get_last_updated() {
+  try {
+    const get_data = LISTS.map(async (i) => {
+      const res = await fetch(BASE_URL + "/data/" + i);
+      const data = await res.json();
+      return data.updated_at;
+    });
+
+    const data = await Promise.all(get_data);
+    const updated = data.filter(Boolean).reduce((acc, val) => {
+      const d1 = new Date(acc);
+      const d2 = new Date(val);
+      if (d1 > d2) {
+        acc = d1;
+      } else {
+        acc = d2;
+      }
+
+      return acc;
+    }, null);
+    LAST_UPDATED.innerHTML = "";
+    LAST_UPDATED.innerHTML += `<p class="has-text-warning">terakhir "sync" data dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank"
+          >wargabantuwarga</a>
+ ${timeSince(updated)} yg lalu</p>`;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 function set_list() {
   fetch(BASE_URL + "/list")
     .then((response) => response.json())
@@ -35,6 +93,15 @@ function set_list() {
       });
       const index_jkt = TITLES.findIndex((i) => i === "jkt");
       set_data(LISTS[index_jkt < 0 ? 0 : index_jkt]);
+    })
+    .catch((e) => {
+      console.log(e);
+      INFO.innerHTML = "";
+      TABLE_HEAD.innerHTML = "";
+      TABLE_BODY.innerHTML = "";
+      INFO.innerHTML = "";
+
+      INFO.innerHTML += `<h1 class="has-text-centered has-text-danger is-size-3">Ooppss Terjadi Error</h1>`;
     });
 }
 set_list();
@@ -122,6 +189,7 @@ function set_data(i) {
       set_loading(false);
       search();
       render_data();
+      get_last_updated();
     })
     .catch((e) => {
       console.log(e);
@@ -129,6 +197,7 @@ function set_data(i) {
       INFO.innerHTML = "";
       TABLE_HEAD.innerHTML = "";
       TABLE_BODY.innerHTML = "";
+      INFO.innerHTML = "";
 
       INFO.innerHTML += `<h1 class="has-text-centered has-text-danger is-size-3">Ooppss Terjadi Error</h1>`;
     });
