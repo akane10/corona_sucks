@@ -66,7 +66,7 @@ async function get_last_updated() {
         const d1 = new Date(acc.updated_at || null);
         const d2 = new Date(updated_at || null);
         if (d1 > d2) {
-          acc.title = title;
+          acc.title = acc.title;
           acc.updated_at = d1;
         } else {
           acc.title = title;
