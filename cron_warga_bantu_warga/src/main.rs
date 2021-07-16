@@ -93,7 +93,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
         }
         Err(e) => {
             println!("{}", e);
-            HashMap::new();
+            HashMap::new()
         }
     };
 
