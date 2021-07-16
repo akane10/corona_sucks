@@ -93,8 +93,7 @@ pub async fn fetch_data(sheet_id: u64, access_token: &str) -> Result<Option<Data
         }
         Err(e) => {
             println!("{}", e);
-            let map = HashMap::new();
-            map
+            HashMap::new();
         }
     };
 
@@ -189,8 +188,8 @@ async fn run(r_token: &str) -> Result<(), Error> {
                 if let Some(data) = fetch_data(id, &access_token).await? {
                     println!("{}", "writing file...");
                     let now = Instant::now();
-                    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data").to_str().unwrap().to_string();
-                    let filename = format!("{}/{}.json", p, title.replace(" ", "").to_lowercase());
+                    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data");
+                    let filename = format!("{}/{}.json", p.to_str().unwrap(), title.replace(" ", "").to_lowercase());
                     let file = File::create(filename)?;
                     serde_json::to_writer_pretty(file, &data)?;
                     let elapsed = now.elapsed();
