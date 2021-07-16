@@ -53,6 +53,7 @@ function timeSince(date) {
 
 async function get_last_updated() {
   try {
+    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> . . .`;
     const get_data = LISTS.map(async (i) => {
       const res = await fetch(BASE_URL + "/data/" + i);
       const data = await res.json();
@@ -76,10 +77,9 @@ async function get_last_updated() {
         return acc;
       }, {});
 
-    LAST_UPDATED.innerHTML = "";
-    LAST_UPDATED.innerHTML += `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank"
-          >wargabantuwarga</a>
- ${timeSince(updated.updated_at)} yg lalu (${updated.title})</p>`;
+    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> ${timeSince(
+      updated.updated_at
+    )} yg lalu (${updated.title})</p>`;
   } catch (e) {
     console.log(e);
   }
@@ -104,7 +104,7 @@ function set_list() {
       INFO.innerHTML = "";
       TABLE_HEAD.innerHTML = "";
       TABLE_BODY.innerHTML = "";
-      INFO.innerHTML = "";
+      LAST_UPDATED.innerHTML = "";
 
       INFO.innerHTML += `<h1 class="has-text-centered has-text-danger is-size-3">Ooppss Terjadi Error</h1>`;
     });
@@ -180,6 +180,7 @@ function render_data() {
 
 function set_data(i) {
   set_loading(true);
+  get_last_updated();
   fetch(BASE_URL + "/data/" + i)
     .then((response) => response.json())
     .then((data) => {
@@ -194,7 +195,6 @@ function set_data(i) {
       set_loading(false);
       search();
       render_data();
-      get_last_updated();
     })
     .catch((e) => {
       console.log(e);
@@ -202,7 +202,7 @@ function set_data(i) {
       INFO.innerHTML = "";
       TABLE_HEAD.innerHTML = "";
       TABLE_BODY.innerHTML = "";
-      INFO.innerHTML = "";
+      LAST_UPDATED.innerHTML = "";
 
       INFO.innerHTML += `<h1 class="has-text-centered has-text-danger is-size-3">Ooppss Terjadi Error</h1>`;
     });
