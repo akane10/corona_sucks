@@ -102,7 +102,7 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
         Some(val) => {
             if sha.ne(&val["hash"]) {
                 println!("NEW HASH {} - {}", title, sha);
-                val["sha"] = Value::String(sha.clone());
+                val["hash"] = Value::String(sha.clone());
                 let file = File::create(p)?;
                 serde_json::to_writer_pretty(file, &s)?;
                 true
