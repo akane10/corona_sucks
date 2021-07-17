@@ -132,6 +132,7 @@ function change_data(i) {
 function render_data() {
   TABLE_HEAD.innerHTML = "";
   TABLE_BODY.innerHTML = "";
+  INFO.innerHTML = "";
 
   SELECTED_DATA.title.forEach((i) => {
     TABLE_HEAD.innerHTML += `<th>${i}</th>`;
