@@ -7,3 +7,5 @@ data from [wargabantuwarga](https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6
 - GET /data/{sheet_id}.json
  	- get row data https://covid.yapie.me/data/0.json
 
+- GET /data/lastest_updated.json
+ 	- get row data https://covid.yapie.me/data/lastest_updated.json
