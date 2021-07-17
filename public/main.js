@@ -76,7 +76,7 @@ function set_list() {
       TITLES.forEach((i, index) => {
         DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${index})">${i}</a>`;
       });
-      const index_jkt = TITLES.findIndex((i) => i === "jkt");
+      const index_jkt = TITLES.findIndex((i) => i === "dki_jakarta");
       set_data(LISTS[index_jkt < 0 ? 0 : index_jkt]);
     })
     .catch((e) => {
