@@ -203,7 +203,7 @@ async fn run(r_token: &str) -> Result<(), Error> {
             println!("{}", "writing file...");
             let now = Instant::now();
             let filename = format!("{}/{}.json", p.to_str().unwrap(), id);
-            let filename_lastest = format!("{}/lastest_updated.json", p.to_str().unwrap());
+            let filename_lastest = format!("{}/last_updated.json", p.to_str().unwrap());
             let file = File::create(filename)?;
             let file_lastest = File::create(filename_lastest)?;
             serde_json::to_writer_pretty(file, &data)?;
