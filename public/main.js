@@ -54,7 +54,7 @@ function timeSince(date) {
 async function get_last_updated() {
   try {
     LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> . . .`;
-    const res = await fetch(BASE_URL + "/data/lastest_updated.json");
+    const res = await fetch(BASE_URL + "/data/last_updated.json");
     const data = await res.json();
 
     LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> ${timeSince(
@@ -70,14 +70,10 @@ function set_list() {
     .then((response) => response.json())
     .then((data) => {
       LISTS = data;
-      TITLES = data.map((title) => {
-        return title.replace(/ /g, "").replace(".json", "");
+      data.forEach(({ title, sheet_id }) => {
+        DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${sheet_id})">${title}</a>`;
       });
-      TITLES.forEach((i, index) => {
-        DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${index})">${i}</a>`;
-      });
-      const index_jkt = TITLES.findIndex((i) => i === "dki_jakarta");
-      set_data(LISTS[index_jkt < 0 ? 0 : index_jkt]);
+      set_data("0");
     })
     .catch((e) => {
       console.log(e);
@@ -129,7 +125,7 @@ function show_dropdown() {
 }
 
 function change_data(i) {
-  set_data(LISTS[i]);
+  set_data(i);
   show_dropdown();
 }
 
@@ -161,7 +157,7 @@ function render_data() {
 function set_data(i) {
   set_loading(true);
   get_last_updated();
-  fetch(BASE_URL + "/data/" + i)
+  fetch(BASE_URL + "/data/" + i + ".json")
     .then((response) => response.json())
     .then((data) => {
       SELECTED_DATA = {
