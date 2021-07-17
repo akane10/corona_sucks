@@ -7,23 +7,24 @@ use rocket_contrib::json::Json;
 use rocket_contrib::serve::StaticFiles;
 use rocket_cors;
 use std::error::Error;
-use std::fs;
+// use std::fs;
 // use serde::{Deserialize, Serialize};
-// use serde_json::json;
-// use serde_json::Value;
+use serde_json::json;
+use serde_json::Value;
+use std::collections::HashMap;
+use std::fs::File;
+use std::io::BufReader;
+use std::path::Path;
 
 #[get("/")]
-fn list() -> Result<Json<Vec<String>>, Box<dyn Error>> {
+fn list() -> Result<Json<Vec<Value>>, Box<dyn Error>> {
     let mut list = Vec::new();
-    let paths = fs::read_dir(concat!(env!("CARGO_MANIFEST_DIR"), "/public/data"))?;
-    for path in paths {
-        let p = path?.file_name().to_str().unwrap().to_string();
-        let split = p.split("/");
-        let vec: Vec<&str> = split.collect();
-        let file = vec[vec.len() - 1].to_string();
-        if file.ne("lastest_updated.json") {
-            list.push(file);
-        }
+    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("public/data/data.json");
+    let file = File::open(&p)?;
+    let reader = BufReader::new(file);
+    let data: HashMap<String, Value> = serde_json::from_reader(reader)?;
+    for (key, val) in data {
+        list.push(json!({ "sheet_id": key, "title": val["title"] }));
     }
 
     Ok(Json(list))
