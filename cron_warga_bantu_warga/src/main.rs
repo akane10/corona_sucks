@@ -189,7 +189,7 @@ async fn run(r_token: &str) -> Result<(), Error> {
                     println!("{}", "writing file...");
                     let now = Instant::now();
                     let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data");
-                    let filename = format!("{}/{}.json", p.to_str().unwrap(), title.replace(" ", "").to_lowercase());
+                    let filename = format!("{}/{}.json", p.to_str().unwrap(), title.replace(" ", "_").to_lowercase());
                     let filename_lastest = format!("{}/lastest_updated.json", p.to_str().unwrap());
                     let file = File::create(filename)?;
                     let file_lastest = File::create(filename_lastest)?;
