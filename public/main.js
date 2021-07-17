@@ -54,32 +54,12 @@ function timeSince(date) {
 async function get_last_updated() {
   try {
     LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> . . .`;
-    const get_data = LISTS.map(async (i) => {
-      const res = await fetch(BASE_URL + "/data/" + i);
-      const data = await res.json();
-      return { title: data.title, updated_at: data.updated_at };
-    });
-
-    const data = await Promise.all(get_data);
-    const updated = data
-      .filter(Boolean)
-      .reduce((acc, { title, updated_at }) => {
-        const d1 = new Date(acc.updated_at || null);
-        const d2 = new Date(updated_at || null);
-        if (d1 > d2) {
-          acc.title = acc.title;
-          acc.updated_at = d1;
-        } else {
-          acc.title = title;
-          acc.updated_at = d2;
-        }
-
-        return acc;
-      }, {});
+    const res = await fetch(BASE_URL + "/data/lastest_updated.json");
+    const data = await res.json();
 
     LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> ${timeSince(
-      updated.updated_at
-    )} yg lalu (${updated.title})</p>`;
+      new Date(data.updated_at)
+    )} yg lalu (${data.title})</p>`;
   } catch (e) {
     console.log(e);
   }
