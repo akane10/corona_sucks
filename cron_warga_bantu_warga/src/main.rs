@@ -190,8 +190,13 @@ async fn run(r_token: &str) -> Result<(), Error> {
                     let now = Instant::now();
                     let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data");
                     let filename = format!("{}/{}.json", p.to_str().unwrap(), title.replace(" ", "").to_lowercase());
+                    let filename_lastest = format!("{}/lastest_updated.json", p.to_str().unwrap());
                     let file = File::create(filename)?;
+                    let file_lastest = File::create(filename_lastest)?;
                     serde_json::to_writer_pretty(file, &data)?;
+
+                    let last = json!({ "title": data.title, "updated_at": data.updated_at });
+                    serde_json::to_writer_pretty(file_lastest, &last)?;
                     let elapsed = now.elapsed();
                     println!("finished {:#?}", elapsed);
                     println!("{}", "done");

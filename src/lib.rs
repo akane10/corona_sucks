@@ -20,8 +20,10 @@ fn list() -> Result<Json<Vec<String>>, Box<dyn Error>> {
         let p = path?.file_name().to_str().unwrap().to_string();
         let split = p.split("/");
         let vec: Vec<&str> = split.collect();
-        let file = vec[vec.len() - 1];
-        list.push(file.to_string());
+        let file = vec[vec.len() - 1].to_string();
+        if file.ne("lastest_updated.json") {
+            list.push(file);
+        }
     }
 
     Ok(Json(list))
