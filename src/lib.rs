@@ -22,7 +22,7 @@ fn list() -> Result<Json<Vec<Value>>, Box<dyn Error>> {
     let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("public/data/data.json");
     let file = File::open(&p)?;
     let reader = BufReader::new(file);
-    let data: HashMap<String, Value> = serde_json::from_reader(reader)?;
+    let data: HashMap<u64, Value> = serde_json::from_reader(reader)?;
     for (key, val) in data {
         list.push(json!({ "sheet_id": key, "title": val["title"] }));
     }

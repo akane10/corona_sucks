@@ -180,7 +180,7 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
 
             match (id, title) {
                 (Ok(id), Ok(title)) => {
-                data.insert(id, title);
+                    data.insert(id, title);
                 },
                 _ => ()
             }
