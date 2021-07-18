@@ -68,7 +68,6 @@ function set_list() {
   fetch(BASE_URL + "/list")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       data.forEach(({ title, sheet_id }) => {
         DROPDOWN_CONTENT.innerHTML += `<a class="dropdown-item" onclick="change_data(${sheet_id})">${title}</a>`;
       });
