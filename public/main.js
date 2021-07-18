@@ -169,9 +169,8 @@ function set_data(i) {
       DATA = { ...SELECTED_DATA };
       LOCATION.innerText = SELECTED_DATA.lokasi;
 
-      set_loading(false);
       search();
-      render_data();
+      set_loading(false);
     })
     .catch((e) => {
       console.log(e);
