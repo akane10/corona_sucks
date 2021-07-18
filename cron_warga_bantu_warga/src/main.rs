@@ -1,16 +1,23 @@
-use reqwest::header::HeaderName;
-use serde::de::DeserializeOwned;
-use serde::{Deserialize, Serialize};
-use serde_json::{from_value, json};
-use serde_json::Value;
-use std::{collections::HashMap, fs::File, path::Path};
-use tokio::time;
-use std::time::Instant;
-use data_encoding::HEXUPPER;
-use ring::digest::{Context, Digest, SHA256};
-use std::io::{BufReader, Read};
-use error::Error;
 use chrono::prelude::*;
+use data_encoding::HEXUPPER;
+use error::Error;
+use reqwest::header::HeaderName;
+use ring::digest::Context;
+use ring::digest::Digest;
+use ring::digest::SHA256;
+use serde::de::DeserializeOwned;
+use serde::Deserialize;
+use serde::Serialize;
+use serde_json::from_value;
+use serde_json::json;
+use serde_json::Value;
+use std::collections::HashMap;
+use std::fs::File;
+use std::io::BufReader;
+use std::io::Read;
+use std::path::Path;
+use std::time::Instant;
+use tokio::time;
 
 mod error;
 
@@ -24,7 +31,7 @@ pub struct DataSheets {
     sheet_id: u64,
     title: String,
     row_data: Vec<Vec<String>>,
-    updated_at: DateTime<Utc>
+    updated_at: DateTime<Utc>,
 }
 
 fn sha256_digest<R: Read>(mut reader: R) -> Result<Digest, Error> {
@@ -49,11 +56,20 @@ fn get_value<T: DeserializeOwned>(json: &Value, fallback: T) -> T {
 async fn refresh_token(refresh_token: &str) -> Result<String, Error> {
     let client_id: &str = &dotenv::var("CLIENT_ID").expect("Missing client id");
     let client_secret: &str = &dotenv::var("CLIENT_SECRET").expect("Missing client secret");
-    let url = format!("{}?client_id={}&client_secret={}&refresh_token={}&grant_type=refresh_token", URL_REFRESH, client_id, client_secret, refresh_token);
+    let url = format!(
+        "{}?client_id={}&client_secret={}&refresh_token={}&grant_type=refresh_token",
+        URL_REFRESH, client_id, client_secret, refresh_token
+    );
 
     let hdr = HeaderName::from_static("content-length");
     let client = reqwest::Client::new();
-    let resp = client.post(url).header(hdr, "0").send().await?.json::<Hjson>().await?;
+    let resp = client
+        .post(url)
+        .header(hdr, "0")
+        .send()
+        .await?
+        .json::<Hjson>()
+        .await?;
 
     if let Some(token) = resp.get("access_token") {
         Ok(token.to_string())
@@ -62,7 +78,11 @@ async fn refresh_token(refresh_token: &str) -> Result<String, Error> {
     }
 }
 
-pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Result<Option<DataSheets>, Error> {
+pub async fn fetch_data(
+    sheet_id: u64,
+    title: &str,
+    access_token: &str,
+) -> Result<Option<DataSheets>, Error> {
     let req_body = json!({
       "includeGridData": true,
       "dataFilters": [
@@ -77,7 +97,14 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
     println!("{}", "fetching data...");
     let now = Instant::now();
     let client = reqwest::Client::new();
-    let resp = client.post(URL).bearer_auth(access_token).json(&req_body).send().await?.text().await?;
+    let resp = client
+        .post(URL)
+        .bearer_auth(access_token)
+        .json(&req_body)
+        .send()
+        .await?
+        .text()
+        .await?;
     let elapsed = now.elapsed();
     println!("finished {:#?}", elapsed);
 
@@ -85,7 +112,9 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
     let digest = sha256_digest(reader)?;
     let sha: String = HEXUPPER.encode(digest.as_ref());
 
-    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data/data.json");
+    let p = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("public/data/data.json");
     let file = File::open(&p);
     let mut s: HashMap<String, Value> = match file {
         Ok(f) => {
@@ -109,7 +138,7 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
             } else {
                 false
             }
-        },
+        }
         _ => {
             println!("INSERT NEW {} - {}", title, sha);
             let val = json!({ "title": title, "hash": Value::String(sha.clone()) });
@@ -147,7 +176,12 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
                     .filter(|val| !val.into_iter().all(|x| x.is_empty()))
                     .collect();
 
-                DataSheets { sheet_id, title, row_data, updated_at: Utc::now() }
+                DataSheets {
+                    sheet_id,
+                    title,
+                    row_data,
+                    updated_at: Utc::now(),
+                }
             })
             .collect();
         let elapsed = now.elapsed();
@@ -162,13 +196,19 @@ pub async fn fetch_data(sheet_id: u64, title: &str, access_token: &str) -> Resul
         println!("SKIP {}: {}", title, sha);
         Ok(None)
     }
-
 }
 
 async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
     let hdr = HeaderName::from_static("content-length");
     let client = reqwest::Client::new();
-    let resp = client.post(URL).header(hdr, "0").bearer_auth(access_token).send().await?.json::<Hjson>().await?;
+    let resp = client
+        .post(URL)
+        .header(hdr, "0")
+        .bearer_auth(access_token)
+        .send()
+        .await?
+        .json::<Hjson>()
+        .await?;
 
     if let Some(sheets_json) = resp.get("sheets") {
         let sheets: Vec<Value> = get_value(&sheets_json, Vec::new());
@@ -181,10 +221,9 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
             match (id, title) {
                 (Ok(id), Ok(title)) => {
                     data.insert(id, title);
-                },
-                _ => ()
+                }
+                _ => (),
             }
-
         }
 
         Ok(data)
@@ -196,7 +235,9 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
 async fn run(r_token: &str) -> Result<(), Error> {
     let access_token = refresh_token(r_token).await?;
     let sheet_ids: HashMap<u64, String> = get_sheets(&access_token).await?;
-    let p = Path::new(env!("CARGO_MANIFEST_DIR")).join("..").join("public/data");
+    let p = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("public/data");
 
     for (id, title) in sheet_ids.iter() {
         if let Some(data) = fetch_data(*id, title, &access_token).await? {
@@ -232,7 +273,7 @@ async fn main() -> Result<(), Error> {
         interval.tick().await;
         match run(r_token).await {
             Err(err) => println!("{}", err),
-            _ => ()
+            _ => (),
         }
     }
 }
