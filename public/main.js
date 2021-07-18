@@ -52,11 +52,11 @@ function timeSince(date) {
 
 async function get_last_updated() {
   try {
-    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> . . .`;
+    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" rel="noreferrer" target="_blank">wargabantuwarga</a> . . .`;
     const res = await fetch(BASE_URL + "/data/last_updated.json");
     const data = await res.json();
 
-    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" target="_blank">wargabantuwarga</a> ${timeSince(
+    LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" rel="noreferrer" target="_blank">wargabantuwarga</a> ${timeSince(
       new Date(data.updated_at)
     )} yg lalu (${data.title})</p>`;
   } catch (e) {
@@ -142,7 +142,7 @@ function render_data() {
       if (ii.includes("http")) {
         x += `<td data-label="${SELECTED_DATA.title[index]}"><a href="${
           ii ? ii : "-"
-        }" target="_blank">link</a></td>`;
+        }" rel="noreferrer" target="_blank">link</a></td>`;
       } else {
         x += `<td data-label="${SELECTED_DATA.title[index]}">${
           ii ? ii : "-"
