@@ -74,6 +74,7 @@ async fn refresh_token(refresh_token: &str) -> Result<String, Error> {
     if let Some(token) = resp.get("access_token") {
         Ok(token.to_string())
     } else {
+        println!("{:#?}", resp);
         Err(Error::Others("failed to get access_token".to_string()))
     }
 }
@@ -152,6 +153,7 @@ pub async fn fetch_data(
         }
     };
     if is {
+        // TODO: perhaps make this its own fn
         println!("{}", "parsing data...");
         let now = Instant::now();
         let data: Vec<DataSheets> = sheets
@@ -228,11 +230,13 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
 
         Ok(data)
     } else {
+        println!("{:#?}", resp);
         Err(Error::Others("failed to get sheets".to_string()))
     }
 }
 
 async fn run(r_token: &str) -> Result<(), Error> {
+    // TODO: only refresh when token is expired
     let access_token = refresh_token(r_token).await?;
     let sheet_ids: HashMap<u64, String> = get_sheets(&access_token).await?;
     let p = Path::new(env!("CARGO_MANIFEST_DIR"))
