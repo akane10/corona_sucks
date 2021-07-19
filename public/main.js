@@ -58,7 +58,7 @@ async function get_last_updated() {
 
     LAST_UPDATED.innerHTML = `<p class="has-text-warning">data terakhir "sync" dari <a href="https://docs.google.com/spreadsheets/d/1RIcSiQqPCw-6H55QIYwblIQDPpFQmDNC73ukFa05J7c/edit#gid=0&fvid=2077488553" rel="noreferrer" target="_blank">wargabantuwarga</a> ${timeSince(
       new Date(data.updated_at)
-    )} yg lalu (${data.title})</p>`;
+    )} yg lalu (${data.title.trim()})</p>`;
   } catch (e) {
     console.log(e);
   }
