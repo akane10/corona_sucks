@@ -103,12 +103,15 @@ pub async fn fetch_data(
         .json(&req_body)
         .send()
         .await?
-        .text()
+        .json::<Hjson>()
         .await?;
     let elapsed = now.elapsed();
     println!("finished {:#?}", elapsed);
 
-    let reader = BufReader::new(resp.as_bytes());
+    let sheets: Vec<Value> = from_value(resp["sheets"].clone())?;
+    let sheets_str: String = serde_json::to_string(&resp["sheets"])?;
+
+    let reader = BufReader::new(sheets_str.as_bytes());
     let digest = sha256_digest(reader)?;
     let sha: String = HEXUPPER.encode(digest.as_ref());
 
@@ -149,9 +152,6 @@ pub async fn fetch_data(
         }
     };
     if is {
-        let sheets_json: Value = serde_json::from_str(&resp)?;
-        let sheets: Vec<Value> = get_value(&sheets_json["sheets"], Vec::new());
-
         println!("{}", "parsing data...");
         let now = Instant::now();
         let data: Vec<DataSheets> = sheets
