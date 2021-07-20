@@ -2,6 +2,7 @@ use chrono::prelude::*;
 use data_encoding::HEXUPPER;
 use error::Error;
 use reqwest::header::HeaderName;
+use reqwest::StatusCode;
 use ring::digest::Context;
 use ring::digest::Digest;
 use ring::digest::SHA256;
@@ -209,6 +210,7 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
         .bearer_auth(access_token)
         .send()
         .await?
+        .error_for_status()?
         .json::<Hjson>()
         .await?;
 
@@ -235,9 +237,7 @@ async fn get_sheets(access_token: &str) -> Result<HashMap<u64, String>, Error> {
     }
 }
 
-async fn run(r_token: &str) -> Result<(), Error> {
-    // TODO: only refresh when token is expired
-    let access_token = refresh_token(r_token).await?;
+async fn run(access_token: &str) -> Result<(), Error> {
     let sheet_ids: HashMap<u64, String> = get_sheets(&access_token).await?;
     let p = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("..")
@@ -266,17 +266,41 @@ async fn run(r_token: &str) -> Result<(), Error> {
     Ok(())
 }
 
+fn is_unauthorized_err(err: &Error) -> bool {
+    match err {
+        Error::ReqError(e) => {
+            match e.status() {
+                Some(status) => status == StatusCode::UNAUTHORIZED,
+                _ => false,
+            }
+        }
+        _ => false,
+    }
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     dotenv::dotenv().ok();
     let r_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
+    let access_token = refresh_token(r_token).await?;
 
     let mut interval = time::interval(time::Duration::from_secs(150));
     loop {
         println!("start...");
         interval.tick().await;
-        match run(r_token).await {
-            Err(err) => println!("{}", err),
+        match run(&access_token).await {
+            Err(err) => {
+                if is_unauthorized_err(&err) {
+                    println!("refresh token");
+                    let access_token = refresh_token(r_token).await?;
+                    match run(&access_token).await {
+                        Err(e) => println!("{}", e),
+                        _ => ()
+                    }
+                } else {
+                    println!("{}", err);
+                }
+            }
             _ => (),
         }
     }
