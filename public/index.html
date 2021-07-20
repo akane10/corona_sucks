@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFFF00" />
     <title>Corona Sucks</title>
+    <link rel="icon" type="image/png" href="/Sick-Emoji.png"/>
     <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
@@ -18,13 +21,18 @@
     <div>
       <p class="has-text-warning">
         Sumber data dari
-        <a href="https://www.wargabantuwarga.com/" rel="noreferrer" target="_blank"
+        <a
+          href="https://www.wargabantuwarga.com/"
+          rel="noreferrer"
+          target="_blank"
           >wargabantuwarga</a
         >
       </p>
       <p class="has-text-warning">
         Kritik, saran, pertanyaan contact me on twitter
-        <a href="https://twitter.com/akane10_" rel="noreferrer" target="_blank">@akane10_</a>
+        <a href="https://twitter.com/akane10_" rel="noreferrer" target="_blank"
+          >@akane10_</a
+        >
       </p>
       <p class="has-text-warning">
         Jika menurutmu ini berguna please share it, thank you
@@ -131,5 +139,15 @@
     </div>
 
     <script src="/main.js"></script>
+    <script>
+      navigator.serviceWorker
+        .register("sw.js", { scope: "." })
+        .then(function (registration) {
+          console.log("Service worker registered successfully");
+        })
+        .catch(function (e) {
+          console.error("Error during service worker registration:", e);
+        });
+    </script>
   </body>
 </html>
