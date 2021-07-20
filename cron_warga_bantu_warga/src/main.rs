@@ -2,7 +2,6 @@ use chrono::prelude::*;
 use data_encoding::HEXUPPER;
 use error::Error;
 use reqwest::header::HeaderName;
-use reqwest::StatusCode;
 use ring::digest::Context;
 use ring::digest::Digest;
 use ring::digest::SHA256;
@@ -54,7 +53,8 @@ fn get_value<T: DeserializeOwned>(json: &Value, fallback: T) -> T {
     from_value(json.clone()).unwrap_or(fallback)
 }
 
-async fn refresh_token(refresh_token: &str) -> Result<String, Error> {
+async fn refresh_token() -> Result<String, Error> {
+    let refresh_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
     let client_id: &str = &dotenv::var("CLIENT_ID").expect("Missing client id");
     let client_secret: &str = &dotenv::var("CLIENT_SECRET").expect("Missing client secret");
     let url = format!(
@@ -266,42 +266,22 @@ async fn run(access_token: &str) -> Result<(), Error> {
     Ok(())
 }
 
-fn is_unauthorized_err(err: &Error) -> bool {
-    match err {
-        Error::ReqError(e) => {
-            match e.status() {
-                Some(status) => status == StatusCode::UNAUTHORIZED,
-                _ => false,
-            }
-        }
-        _ => false,
-    }
-}
-
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     dotenv::dotenv().ok();
-    let r_token: &str = &dotenv::var("REFRESH_TOKEN").expect("Missing refresh token");
-    let access_token = refresh_token(r_token).await?;
 
     let mut interval = time::interval(time::Duration::from_secs(150));
     loop {
         println!("start...");
         interval.tick().await;
-        match run(&access_token).await {
-            Err(err) => {
-                if is_unauthorized_err(&err) {
-                    println!("refresh token");
-                    let access_token = refresh_token(r_token).await?;
-                    match run(&access_token).await {
-                        Err(e) => println!("{}", e),
-                        _ => ()
-                    }
-                } else {
-                    println!("{}", err);
+        match refresh_token().await {
+            Ok(ref access_token) => {
+                match run(access_token).await {
+                    Err(e) => println!("{}", e),
+                    _ => (),
                 }
             }
-            _ => (),
-        }
+            Err(e) => println!("{}", e),
+        };
     }
 }
