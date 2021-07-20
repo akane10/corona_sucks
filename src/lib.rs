@@ -24,7 +24,7 @@ fn list() -> Result<Json<Vec<Value>>, Box<dyn Error>> {
     let reader = BufReader::new(file);
     let data: HashMap<u64, Value> = serde_json::from_reader(reader)?;
     for (key, val) in data {
-        list.push(json!({ "sheet_id": key, "title": val["title"] }));
+        list.push(json!({ "sheet_id": key, "title": val["title"], "total_row": val["total_row"] }));
     }
 
     Ok(Json(list))
