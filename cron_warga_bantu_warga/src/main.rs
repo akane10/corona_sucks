@@ -194,7 +194,7 @@ pub async fn fetch_data(
             let val = json!({ "title": title,  "total_row": total_row, "hash": Value::String(sha.clone()) });
             s.insert(sheet_id.to_string(), val.clone());
             let file = File::create(p)?;
-            serde_json::to_writer_pretty(file, &s)?;
+            serde_json::to_writer(file, &s)?;
         } else {
             match data_json {
                 Some(ref mut val) => {
@@ -202,7 +202,7 @@ pub async fn fetch_data(
                     val["hash"] = Value::String(sha.clone());
                     val["total_row"] = json!(total_row);
                     let file = File::create(p)?;
-                    serde_json::to_writer_pretty(file, &s)?;
+                    serde_json::to_writer(file, &s)?;
                 }
                 _ => println!("should never happens")
             }
@@ -264,10 +264,10 @@ async fn run(access_token: &str) -> Result<(), Error> {
             let filename_lastest = format!("{}/last_updated.json", p.to_str().unwrap());
             let file = File::create(filename)?;
             let file_lastest = File::create(filename_lastest)?;
-            serde_json::to_writer_pretty(file, &data)?;
+            serde_json::to_writer(file, &data)?;
 
             let last = json!({ "sheet_id": data.sheet_id, "title": data.title, "updated_at": data.updated_at });
-            serde_json::to_writer_pretty(file_lastest, &last)?;
+            serde_json::to_writer(file_lastest, &last)?;
 
             let elapsed = now.elapsed();
             println!("finished {:#?}", elapsed);
