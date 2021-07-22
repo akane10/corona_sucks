@@ -80,40 +80,31 @@ async fn refresh_token() -> Result<String, Error> {
     }
 }
 
-fn parse_data(sheets: Vec<Value>) -> Result<Option<DataSheets>, Error> {
-    let mut data: Vec<DataSheets> = Vec::new();
+fn parse_data(sheet: &Value) -> Result<DataSheets, Error> {
+    let title: String = from_value(sheet["properties"]["title"].clone())?;
+    let sheet_id: u64 = from_value(sheet["properties"]["sheetId"].clone())?;
+    let row_data_json: Vec<Value> = from_value(sheet["data"][0]["rowData"].clone())?;
 
-    for sheet in sheets {
-        let title: String = from_value(sheet["properties"]["title"].clone())?;
-        let sheet_id: u64 = from_value(sheet["properties"]["sheetId"].clone())?;
-        let row_data_json: Vec<Value> = from_value(sheet["data"][0]["rowData"].clone())?;
-
-        let row_data: Vec<Vec<String>> = row_data_json
-            .into_iter()
-            .map(|x| get_value(&x["values"], Vec::new()))
-            .map(|x: Vec<Value>| {
-                let formatted_value: Vec<String> = x
-                    .into_iter()
-                    .map(|value| get_value(&value["formattedValue"], String::from("")))
-                    .collect();
-                formatted_value
-            })
-            .filter(|val| !val.into_iter().all(|x| x.is_empty()))
-            .collect();
-
-        data.push(DataSheets {
-            sheet_id,
-            title,
-            row_data,
-            updated_at: Utc::now(),
+    let row_data: Vec<Vec<String>> = row_data_json
+        .into_iter()
+        .map(|x| get_value(&x["values"], Vec::new()))
+        .map(|x: Vec<Value>| {
+            let formatted_value: Vec<String> = x
+                .into_iter()
+                .map(|value| get_value(&value["formattedValue"], String::from("")))
+                .collect();
+            formatted_value
         })
-    }
+        .filter(|val| !val.into_iter().all(|x| x.is_empty()))
+        .collect();
 
-    if data.len() > 0 {
-        Ok(Some(data[0].clone()))
-    } else {
-        Ok(None)
-    }
+    let data = DataSheets {
+        sheet_id,
+        title,
+        row_data,
+        updated_at: Utc::now(),
+    };
+    Ok(data)
 }
 
 pub async fn fetch_data(
@@ -147,70 +138,75 @@ pub async fn fetch_data(
     println!("finished {:#?}", elapsed);
 
     let sheets: Vec<Value> = from_value(resp["sheets"].clone())?;
-    let sheets_str: String = serde_json::to_string(&resp["sheets"])?;
 
-    let reader = BufReader::new(sheets_str.as_bytes());
-    let digest = sha256_digest(reader)?;
-    let sha: String = HEXUPPER.encode(digest.as_ref());
-
-    let p = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("..")
-        .join("public/data/data.json");
-    let file = File::open(&p);
-    let mut s: HashMap<String, Value> = match file {
-        Ok(f) => {
-            let reader = BufReader::new(f);
-            serde_json::from_reader(reader).unwrap_or(HashMap::new())
-        }
-        Err(e) => {
-            println!("{}", e);
-            HashMap::new()
-        }
-    };
-
-    let mut data_json = s.get_mut(&sheet_id.to_string());
-
-    let (is, is_new) = match data_json {
-        Some(ref val) => {
-            if sha.ne(&val["hash"]) {
-                (true, false)
-            } else {
-                (false, false)
-            }
-        }
-        _ => (true, true)
-    };
-    if is {
-        println!("{}", "parsing data...");
-        let now = Instant::now();
-        let data = parse_data(sheets)?;
-        let elapsed = now.elapsed();
-        println!("finished {:#?}", elapsed);
-
-        let total_row = data.as_ref().map(|x| x.row_data.len());
-
-        if is_new {
-            println!("INSERT NEW {} - {}", title, sha);
-            let val = json!({ "title": title,  "total_row": total_row, "hash": Value::String(sha.clone()) });
-            s.insert(sheet_id.to_string(), val.clone());
-            let file = File::create(p)?;
-            serde_json::to_writer(file, &s)?;
-        } else {
-            match data_json {
-                Some(ref mut val) => {
-                    println!("NEW HASH {} - {}", title, sha);
-                    val["hash"] = Value::String(sha.clone());
-                    val["total_row"] = json!(total_row);
-                    let file = File::create(p)?;
-                    serde_json::to_writer(file, &s)?;
-                }
-                _ => println!("should never happens")
-            }
-        }
-        Ok(data)
-    } else {
-        println!("SKIP {}: {}", title, sha);
+    if sheets.len() <= 0 {
         Ok(None)
+    } else {
+        let sheets_str: String = serde_json::to_string(&resp["sheets"])?;
+
+        let reader = BufReader::new(sheets_str.as_bytes());
+        let digest = sha256_digest(reader)?;
+        let sha: String = HEXUPPER.encode(digest.as_ref());
+
+        let p = Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("..")
+            .join("public/data/data.json");
+        let file = File::open(&p);
+        let mut s: HashMap<String, Value> = match file {
+            Ok(f) => {
+                let reader = BufReader::new(f);
+                serde_json::from_reader(reader).unwrap_or(HashMap::new())
+            }
+            Err(e) => {
+                println!("{}", e);
+                HashMap::new()
+            }
+        };
+
+        let mut data_json = s.get_mut(&sheet_id.to_string());
+
+        let (is, is_new) = match data_json {
+            Some(ref val) => {
+                if sha.ne(&val["hash"]) {
+                    (true, false)
+                } else {
+                    (false, false)
+                }
+            }
+            _ => (true, true),
+        };
+        if is {
+            println!("{}", "parsing data...");
+            let now = Instant::now();
+            let data = parse_data(&sheets[0])?;
+            let elapsed = now.elapsed();
+            println!("finished {:#?}", elapsed);
+
+            let total_row = data.row_data.len();
+
+            if is_new {
+                println!("INSERT NEW {} - {}", title, sha);
+                let val = json!({ "title": title,  "total_row": total_row, "hash": Value::String(sha.clone()) });
+                s.insert(sheet_id.to_string(), val.clone());
+                let file = File::create(p)?;
+                serde_json::to_writer(file, &s)?;
+            } else {
+                match data_json {
+                    Some(ref mut val) => {
+                        println!("NEW HASH {} - {}", title, sha);
+                        val["hash"] = Value::String(sha.clone());
+                        val["total_row"] = json!(total_row);
+                        let file = File::create(p)?;
+                        serde_json::to_writer(file, &s)?;
+                    }
+                    _ => println!("should never happens"),
+                }
+            }
+            Ok(Some(data))
+        } else {
+            println!("SKIP {}: {}", title, sha);
+            Ok(None)
+        }
     }
 }
 
