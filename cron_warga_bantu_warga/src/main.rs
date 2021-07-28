@@ -279,7 +279,7 @@ async fn run(access_token: &str) -> Result<(), Error> {
 async fn main() -> Result<(), Error> {
     dotenv::dotenv().ok();
 
-    let mut interval = time::interval(time::Duration::from_secs(150));
+    let mut interval = time::interval(time::Duration::from_secs(30));
     loop {
         println!("start...");
         interval.tick().await;
