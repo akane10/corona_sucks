@@ -26,6 +26,7 @@ fn list() -> Result<Json<Vec<Value>>, Box<dyn Error>> {
     for (key, val) in data {
         list.push(json!({ "sheet_id": key, "title": val["title"], "total_row": val["total_row"] }));
     }
+    list.sort_by(|a, b| a["title"].as_str().cmp(&b["title"].as_str()));
 
     Ok(Json(list))
 }
