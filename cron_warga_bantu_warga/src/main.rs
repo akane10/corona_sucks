@@ -137,7 +137,7 @@ pub async fn fetch_data(
     let elapsed = now.elapsed();
     println!("finished {:#?}", elapsed);
 
-    let sheets: Vec<Value> = from_value(resp["sheets"].clone())?;
+    let sheets: Vec<Value> = get_value(&resp["sheets"], Vec::new());
 
     if sheets.len() <= 0 {
         Ok(None)
