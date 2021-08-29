@@ -109,3 +109,16 @@ pub async fn get_sheet_data(sheet_id: u64, access_token: &str) -> Result<Vec<Val
         Err(Error::Others("failed to get sheets".to_string()))
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_all() {
+        let access_token = refresh_token().await.unwrap();
+        get_sheets(&access_token).await.unwrap();
+        let res = get_sheet_data(0, &access_token).await;
+        assert!(res.is_ok());
+    }
+}

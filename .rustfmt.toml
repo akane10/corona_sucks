@@ -1,3 +1,0 @@
-# `rustfmt --config-help` for formatting options
-force_multiline_blocks = true
-imports_granularity = "Item"
