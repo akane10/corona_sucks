@@ -7,12 +7,19 @@ const TABLE_BODY = document.getElementById("table-body");
 const INPUT = document.getElementById("search");
 const INFO = document.getElementById("info");
 const LAST_UPDATED = document.getElementById("last-updated");
+const NEXT_PAGE = document.getElementById("next-page");
+const PREVIOUS_PAGE = document.getElementById("previous-page");
+const FIRST_PAGE = document.getElementById("first-page");
+const LAST_PAGE = document.getElementById("last-page");
+const CURRENT_PAGE_DOC = document.getElementById("current-page");
 
 let TITLES = [];
 let DATA = {};
 let CURRENT_INDEX = 0;
 let DROPDOWN_SHOW = false;
 let SELECTED_DATA = {};
+let CURRENT_PAGE = 1;
+let TOTAL_PAGES = 1;
 
 function set_loading(bool) {
   if (bool) {
@@ -98,6 +105,26 @@ function delay(callback, ms) {
 }
 
 INPUT.addEventListener("keyup", delay(search, 1000));
+NEXT_PAGE.addEventListener("click", (el) => {
+  if (el.target.attributes.disabled) return
+  CURRENT_PAGE += 1;
+  render_data();
+});
+PREVIOUS_PAGE.addEventListener("click", (el) => {
+  if (el.target.attributes.disabled) return
+  CURRENT_PAGE -= 1;
+  render_data();
+});
+FIRST_PAGE.addEventListener("click", (el) => {
+  if (el.target.attributes.disabled) return
+  CURRENT_PAGE = 1;
+  render_data();
+});
+LAST_PAGE.addEventListener("click", (el) => {
+  if (el.target.attributes.disabled) return
+  CURRENT_PAGE = TOTAL_PAGES;
+  render_data();
+});
 
 function search() {
   const keyword = INPUT.value.toLowerCase();
@@ -127,15 +154,35 @@ function change_data(i) {
   show_dropdown();
 }
 
+function set_pagination_ui() {
+  if (CURRENT_PAGE >= SELECTED_DATA.pages.total) {
+    NEXT_PAGE.setAttribute("disabled", "");
+    LAST_PAGE.setAttribute("disabled", "");
+  } else {
+    NEXT_PAGE.removeAttribute("disabled");
+    LAST_PAGE.removeAttribute("disabled");
+  }
+  if (CURRENT_PAGE <= 1) {
+    PREVIOUS_PAGE.setAttribute("disabled", "");
+    FIRST_PAGE.setAttribute("disabled", "");
+  } else {
+    PREVIOUS_PAGE.removeAttribute("disabled");
+    FIRST_PAGE.removeAttribute("disabled");
+  }
+  CURRENT_PAGE_DOC.innerHTML = CURRENT_PAGE;
+  LAST_PAGE.innerHTML = TOTAL_PAGES;
+}
+
 function render_data() {
   TABLE_HEAD.innerHTML = "";
   TABLE_BODY.innerHTML = "";
   INFO.innerHTML = "";
+  set_pagination_ui();
 
   SELECTED_DATA.title.forEach((i) => {
     TABLE_HEAD.innerHTML += `<th>${i}</th>`;
   });
-  SELECTED_DATA.data.forEach((i) => {
+  (SELECTED_DATA.pages.data[CURRENT_PAGE] || []).forEach((i) => {
     let x = "<tr>";
     i.forEach((ii, index) => {
       if (ii.includes("http")) {
@@ -153,20 +200,42 @@ function render_data() {
   });
 }
 
+function set_pages(data) {
+  const total = data.length ? Math.ceil(data.length / 10) : 0;
+  let start = 0;
+  let end = 10;
+  let obj = {};
+
+  for (let i = 1; i <= total; i++) {
+    obj[i] = data.slice(start, end);
+    start += 9;
+    end += 10;
+  }
+
+  return { total, data: obj };
+}
+
 function set_data(i) {
   set_loading(true);
   get_last_updated();
   fetch(BASE_URL + "/data/" + i + ".json")
     .then((response) => response.json())
     .then((data) => {
+      CURRENT_PAGE = 1
+      const title = data?.row_data[0] || [];
+      const data_ = data?.row_data.slice(1) || [];
       SELECTED_DATA = {
         lokasi: data.title,
-        title: data?.row_data[0] || [],
-        data: data?.row_data.slice(1) || [],
+        title,
+        data: data_,
+        pages: set_pages(data_),
       };
       DATA = { ...SELECTED_DATA };
       LOCATION.innerText = SELECTED_DATA.lokasi;
 
+      // console.log({ SELECTED_DATA });
+
+      TOTAL_PAGES = SELECTED_DATA.pages.total;
       search();
       set_loading(false);
     })
